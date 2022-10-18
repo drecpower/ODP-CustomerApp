@@ -1,0 +1,32 @@
+<div fxLayout="row" (click)="changePay()" class="pointer">
+  <div fxFlex="10" fxLayoutAlign="start center">
+    <span class="material-icons-outlined f-s-38 grey-color">credit_card</span>
+  </div>
+  <div fxLayout="column" fxLayoutAlign="start start" class="ml-10" fxFlex>
+    <div *ngIf="cartSvc.customerCard">
+      <div *ngIf="cartSvc.customerCard?.brand">
+        {{cartSvc.customerCard?.brand }}
+        <span *ngIf="cartSvc.customerCard?.method"> - {{cartSvc.customerCard?.method}}</span>
+        <span *ngIf="cartSvc.customerCard?.nickname"> ({{cartSvc.customerCard?.nickname}})</span>
+      </div>
+      <div *ngIf="cartSvc.customerCard?.number">
+        {{cartSvc.customerCard?.number}}
+      </div>
+    </div>
+    <div *ngIf="cartSvc.payment && !cartSvc.customerCard">
+      <div *ngIf="cartSvc.payment?.displayName">
+        {{cartSvc.payment?.displayName}}
+      </div>
+      <div *ngIf="!cartSvc.payment?.displayName">
+        {{cartSvc.payment?.method}} -  {{cartSvc.payment?.cardBrand}} ( Machine )
+      </div>
+    </div>
+    <div *ngIf="!cartSvc.customerCard && !cartSvc.payment ">Choose the Payment Way
+    </div>
+  </div>
+
+  <div class="div-padding body2 primary-color"  fxFlex="20"
+    fxLayoutAlign="end center">
+    Change
+  </div>
+</div>

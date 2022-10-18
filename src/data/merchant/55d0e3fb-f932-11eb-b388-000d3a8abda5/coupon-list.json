@@ -1,0 +1,63 @@
+[
+    {
+        "allowedWithPromotionalItems": true,
+        "code": "1F234",
+        "createdAt": "2022-01-01 22:40:01",
+        "description": "",
+        "finalValidity": "2022-04-10 22:40:01",
+        "id": "ec9ff365-2f36-4988-b201-f9727f32dc60",
+        "merchantId": "55d0e3fb-f932-11eb-b388-000d3a8abda5",
+        "minimum": 20,
+        "status": "ACTIVE",
+        "value": 10
+    },
+    {
+        "allowedWithPromotionalItems": true,
+        "code": "S6467",
+        "createdAt": "2022-01-01 22:40:01",
+        "description": "",
+        "finalValidity": "2022-12-10 22:40:01",
+        "id": "9dd6b2d9-dfee-40e4-960b-b99c32675717",
+        "merchantId": "55d0e3fb-f932-11eb-b388-000d3a8abda5",
+        "minimum": 20,
+        "percentage": 10,
+        "status": "ACTIVE"
+    },
+    {
+        "allowedWithPromotionalItems": true,
+        "code": "06G89",
+        "createdAt": "2022-01-01 22:40:01",
+        "description": "",
+        "finalValidity": "2022-04-10 22:40:01",
+        "id": "56d6a9ce-eb21-413f-a134-5d9adb08ef2c",
+        "merchantId": "55d0e3fb-f932-11eb-b388-000d3a8abda5",
+        "minimum": 20,
+        "status": "ACTIVE",
+        "value": 10
+    },
+    {
+        "allowedWithPromotionalItems": true,
+        "code": "G575",
+        "createdAt": "2022-01-01 22:40:01",
+        "description": "",
+        "finalValidity": "2022-01-10 22:40:01",
+        "id": "ddf79d40-57c7-499c-895a-6ba9017aaff1",
+        "merchantId": "55d0e3fb-f932-11eb-b388-000d3a8abda5",
+        "minimum": 20,
+        "percentage": "",
+        "status": "ACTIVE",
+        "value": 10
+    },
+    {
+        "allowedWithPromotionalItems": true,
+        "code": "H7544",
+        "createdAt": "2022-01-01 22:40:01",
+        "description": "",
+        "finalValidity": "2022-01-21 20:11:01",
+        "id": "623efe29-9b68-440c-a03d-97cea3c05b81",
+        "merchantId": "55d0e3fb-f932-11eb-b388-000d3a8abda5",
+        "percentage": 12,
+        "status": "ACTIVE",
+        "value": 10
+    }
+]

@@ -1,0 +1,139 @@
+<div class="content white-background-color">
+    <!-- <div class="header white-background-color">
+        <div class="header-logged">
+            <div class="header-logged" fxLayout="row wrap" fxLayoutAlign="center center">
+                <div fxFlex="30" fxLayoutAlign="start center" class="close-icon">
+                    <mat-icon (click)="back()" class="primary-color primary-color-stroke" matPrefix [svgIcon]="icons.back">
+                    </mat-icon>
+                </div>
+                <div fxFlex="40" class="heading3">My Orders </div> 
+                <div fxFlex="30"> </div>
+            </div>
+        </div>
+    </div> -->
+    <div class="title heading2-regular">My Orders</div>
+    <div class="orders-in-progress" fxLayout="row">
+        <div class="order-in-progress" fxLayout="row" *ngFor="let sO of orderStorageSvc.ordersInProgress;index as i">
+            <mat-card class="white-background-color" (click)="openOrderInProgress(sO.order)">
+                <mat-card-header fxLayout="row" fxLayoutAlign="left center" (click)="openOrderInProgress(sO.order)">
+                    <div class="image" mat-card-avatar
+                        [ngStyle]="{'background-image': 'url(' + sO.order.merchantIdNavigation?.reference + ')' } ">
+                    </div>
+                    <div class="body2 merchant-name">
+                        {{sO.order.merchantIdNavigation?.name}}
+                    </div>
+                </mat-card-header>
+                <mat-divider inset></mat-divider>
+                <mat-card-content (click)="openOrderInProgress(sO.order)" fxLayout="column">
+                    <div class="status grey-color">
+                        <span>
+                            <mat-icon class="check-circle success-color">check_circle</mat-icon>
+                        </span>
+                        <span class="status-description">Order {{sO.order.status}} . Nº.
+                            <span *ngIf="sO.order.displayId">{{ sO.order.displayId}}</span>
+                            <span *ngIf="!(sO.order.displayId)">
+                                <mat-progress-spinner mode="indeterminate" color="primary"></mat-progress-spinner>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="items" *ngIf="sO.order.orderItem">
+                        <div class="item" fxLayout="row">
+                            <span
+                                class="quantity-number light-grey-background-color">{{sO.order.orderItem[0].quantity}}</span>
+                            <span class="description grey-color">
+                                {{sO.order.orderItem[0].itemIdNavigation?.productIdNavigation?.name}}</span>
+                        </div>
+                        <span class="more" *ngIf="sO.order.orderItem.length>1">more {{sO.order.orderItem.length-1}}
+                            item</span>
+                    </div>
+                    <mat-divider inset></mat-divider>
+                    <div class="rate" fxFlex="100" fxLayoutAlign="left center">
+                        <div class="div-rate" fxFlex="50">
+                            Rate your order
+                        </div>
+                        <div class="div-star" fxFlex="50">
+                            <mat-icon class="star light-grey-color">star</mat-icon>
+                            <mat-icon class="star light-grey-color">star</mat-icon>
+                            <mat-icon class="star light-grey-color">star</mat-icon>
+                            <mat-icon class="star light-grey-color">star</mat-icon>
+                            <mat-icon class="star light-grey-color">star</mat-icon>
+                        </div>
+                    </div>
+                </mat-card-content>
+                <mat-divider inset></mat-divider>
+                <mat-card-actions fxLayoutAlign="center center">
+                    <button fxFlex="50" mat-button class="btn-help" color="primary" (click)="help()">
+                        Help
+                    </button>
+                    <button fxFlex="50" mat-button class="btn-add" color="primary" (click)="add()">
+                        Add to cart
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="orders" fxLayout="column">
+        <div class="history body1-bold"> History</div>
+        <div class="order" fxLayout="column" *ngFor="let sO of orderStorageSvc.ordersHistory;index as i">
+            <div class="date body1" *ngIf="sO.order.id && toShowDate.indexOf(sO.order.id)>=0"
+                [ngClass]="{'dateTop':i==0}">
+                {{sO.order.createdAt |date:"dd/MM/yyyy"}}
+            </div>
+            <mat-card class="white-background-color" (click)="openOrder(sO.order)">
+                <mat-card-header fxLayout="row" fxLayoutAlign="left center" (click)="openOrder(sO.order)">
+                    <div class="image" mat-card-avatar
+                        [ngStyle]="{'background-image': 'url(' + sO.order.merchantIdNavigation?.reference + ')' } ">
+                    </div>
+                    <div class="body2 merchant-name">
+                        {{sO.order.merchantIdNavigation?.name}}
+                    </div>
+                </mat-card-header>
+                <mat-divider inset></mat-divider>
+                <mat-card-content (click)="openOrder(sO.order)" fxLayout="column">
+                    <div class="status grey-color">
+                        <span>
+                            <mat-icon class="check-circle success-color">check_circle</mat-icon>
+                        </span>
+                        <span class="status-description">Order {{sO.order.status}} . Nº. {{ sO.order.displayId}}</span>
+                    </div>
+                    <div class="items" *ngIf="sO.order.orderItem">
+                        <div class="item" fxLayout="row">
+                            <span
+                                class="quantity-number light-grey-background-color">{{sO.order.orderItem[0].quantity}}</span>
+                            <span class="description grey-color">
+                                {{sO.order.orderItem[0].itemIdNavigation?.productIdNavigation?.name}}</span>
+                        </div>
+                        <span class="more" *ngIf="sO.order.orderItem.length>1">more {{sO.order.orderItem.length-1}}
+                            item</span>
+                    </div>
+                    <mat-divider inset></mat-divider>
+                    <div class="rate" fxFlex="100" fxLayoutAlign="left center">
+                        <div class="div-rate" fxFlex="50">
+                            Rate your order
+                        </div>
+                        <div class="div-star" fxFlex="50">
+                            <mat-icon class="star light-grey-color">star</mat-icon>
+                            <mat-icon class="star light-grey-color">star</mat-icon>
+                            <mat-icon class="star light-grey-color">star</mat-icon>
+                            <mat-icon class="star light-grey-color">star</mat-icon>
+                            <mat-icon class="star light-grey-color">star</mat-icon>
+                        </div>
+                    </div>
+                </mat-card-content>
+                <mat-divider inset></mat-divider>
+                <mat-card-actions fxLayoutAlign="center center">
+                    <button fxFlex="50" mat-button class="btn-help" color="primary" (click)="help()">
+                        Help
+                    </button>
+                    <button fxFlex="50" mat-button class="btn-add" color="primary" (click)="add()">
+                        Add to cart
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+    <div *ngIf="orders &&  !(orders.length>0)" class="without-orders">
+        You don't have any orders yet :)
+    </div>
+</div>

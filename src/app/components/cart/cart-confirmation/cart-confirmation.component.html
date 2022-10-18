@@ -1,0 +1,81 @@
+<div class="content" fxLayout="column">
+    <div class="heading3 title"> Confirm Delivery</div>
+    <div fxLayout="row">
+        <div class="date-icon" fxFlex="20" fxLayoutAlign="start start">
+            <div class="box-day primary-border-color" fxLayout="column" fxLayoutAlign="row">
+                <span class="body6-bold primary-color day-week">Sat</span>
+                <span class="body3-bold day">20</span>
+            </div>
+        </div>
+        <div class="date-description" fxFlex="70" fxLayout="column">
+            <div fxLayoutAlign="start center">
+                <span *ngIf="cartSvc.orderType==OrderType.DELIVERY">Delivery</span>
+                <span *ngIf="cartSvc.orderType==OrderType.TAKEOUT">Pick Up </span>
+                <span class="space"></span>
+                <span> today</span>
+            </div>
+            <div fxLayoutAlign="start center">
+                <span class="grey-color">Today, </span>
+                <span class="space"></span>
+                <span class="grey-color">16 - 26 min</span>
+            </div>
+        </div>
+    </div>
+    <div class="divider">
+        <div class="light-grey-border-bottom-color"></div>
+    </div>
+    <div class="address" fxLayout="column">
+        <div class="grey-color address-title" fxLayout="start start">
+            <span *ngIf="cartSvc.orderType==OrderType.DELIVERY">Delivery</span>
+            <span *ngIf="cartSvc.orderType==OrderType.TAKEOUT">Pick Up</span>
+            <span class="space"></span>
+            In
+        </div>
+        <div>
+            <div class="address-icon" fxFlex="20" fxLayoutAlign="start start">
+                <div class="address-pin" fxLayoutAlign="center center">
+                    <mat-icon class="primary-color-stroke" matPrefix [svgIcon]="icons.pin"></mat-icon>
+                </div>
+            </div>
+            <div class="address-description body3-bold" fxFlex="70">
+                <span
+                    *ngIf="cartSvc.orderType==OrderType.DELIVERY">{{cartSvc.address?.streetName}},{{cartSvc.address?.streetNumber}}</span>
+                <span
+                    *ngIf="cartSvc.orderType==OrderType.TAKEOUT">{{selectedSvc.selectedMerchant?.streetName}},{{selectedSvc.selectedMerchant?.streetNumber}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="divider">
+        <div class="light-grey-border-bottom-color"></div>
+    </div>
+    <div class="payment-icon" fxLayout="row">
+        <div class="payment-icon" fxFlex="20" fxLayoutAlign="start start">
+            <mat-icon>credit_card</mat-icon>
+        </div>
+        <div class="payment-description" fxFlex="70">
+            <div class="">
+                <span *ngIf="cartSvc.payment?.type == 'ONLINE'" class="body3-bold">Payment Online</span>
+                <span *ngIf="cartSvc.payment?.type != 'ONLINE'" class="body3-bold">Payment on Delivery</span>
+            </div>
+            <div class="grey-color">
+                <span *ngIf="cartSvc.payment?.type == 'ONLINE' && cartSvc.payment?.cardBrand">
+                {{cartSvc.payment?.cardBrand?.toLowerCase()}}****   
+                </span>
+                <span *ngIf="cartSvc.payment?.type != 'ONLINE'"> {{cartSvc.payment?.method}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="divider">
+        <div class="light-grey-border-bottom-color"></div>
+    </div>
+    <div class="buttons">
+        <div fxFlex="100" fxLayout="column">
+            <div fxFlex="100">
+                <button class="primary-background-color white-color" [disabled]="!cartSvc.isReadyToSend()" (click)="dialogSvc.close(true)" mat-raised-button>Confirm and send order</button>
+            </div>
+            <div fxFlex="100">
+                <button class="primary-color" (click)="dialogSvc.back()" mat-button>Change data</button>
+            </div>
+        </div>
+    </div>
+</div>

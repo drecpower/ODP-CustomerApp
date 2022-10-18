@@ -1,0 +1,45 @@
+<div class="content">
+    <div class="header" fxLayout="row wrap" fxLayoutAlign="center center">
+        <div fxFlex="30" fxLayoutAlign="start center" class="close-icon"> 
+            <mat-icon (click)="back()" class="primary-color primary-color-stroke" matPrefix [svgIcon]="icons.back">
+            </mat-icon>
+        </div>
+        <div fxFlex="40" class="heading3">Confirm your Data</div>
+        <div fxFlex="30"> </div>
+    </div>
+    <div class="body" fxLayout="column">
+        <div fxFlex="100" class="name">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label class="dark-grey-color">Name</mat-label>
+                <input matInput [(ngModel)]="user.name" value="">
+            </mat-form-field>
+        </div>
+        <div fxFlex="100">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label class="dark-grey-color">E-mail</mat-label>
+                <input matInput [(ngModel)]="user.email" value="">
+            </mat-form-field>
+        </div>
+        <div fxFlex="100">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label class="dark-grey-color">Phone</mat-label>
+                <input matInput [(ngModel)]="user.phoneNumber" value="">
+            </mat-form-field>
+        </div>
+        <div fxFlex="100">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label class="dark-grey-color">Document</mat-label>
+                <input matInput [(ngModel)]="user.documentNumber" value="">
+            </mat-form-field>
+        </div>
+
+        <div fxFlex="100" fxLayout="column">
+            <div fxFlex="100" class="btn">
+                <button mat-raised-button color="primary" (click)="confirm()">Confirm Data</button>
+            </div>
+            <div fxFlex="100" class="btn">
+                <button class="primary-color body1-semibold" mat-button (click)="userSvc.user={}">Login</button>
+            </div>
+        </div>
+    </div>
+</div>

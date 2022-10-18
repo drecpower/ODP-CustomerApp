@@ -1,0 +1,91 @@
+<div class="content" fxLayout="column">
+    <div class="header" fxLayout="row wrap" fxLayoutAlign="center center">
+        <div fxFlex="30" fxLayoutAlign="start center" class="close-icon">
+            <mat-icon mat-dialog-close class="primary-color primary-color-stroke" matPrefix [svgIcon]="icons.back">
+            </mat-icon>
+        </div>
+        <div fxFlex="40" class="heading3">COUPONS</div>
+        <div fxFlex="30"> </div>
+    </div>
+
+
+    <div fxFlex="100" class="item-content" fxLayout="row" fxLayoutAlign="start center">
+        <mat-tab-group animationDuration="0ms" #tabRef (selectedTabChange)="selectTab(tabRef.selectedIndex)"
+            mat-align-tabs="center">
+            <mat-tab label="Available"></mat-tab>
+            <mat-tab label="Unavailable"></mat-tab>
+        </mat-tab-group>
+    </div>
+
+    <div fxLayout="row" class="m-t-10 header" fxLayoutAlign="start center" *ngIf="selectedTab == AVAILABLE">
+        <input [(ngModel)]="addCode" class="grey-border-color" name="coupon" fxFlex matInput placeholder="Coupon code">
+        <div (click)="addCoupon()" fxFlex="10" [ngClass]="{'primary-color':selectedCoupon,'grey-color':!selectedCoupon}"
+            fxLayoutAlign="center center" class="primary-color"> Add</div>
+    </div>
+    <div fxLayout="column" class="header m-t-10">
+        <mat-radio-group name="opCoupons" class="primary-color" [(ngModel)]="code">
+            <div fxLayout="row" class="box b-r-5 m-b-15 pointer" (click)="selectCoupon(undefined)"
+                *ngIf="selectedTab == AVAILABLE" [ngClass]="{
+                    'primary-border-color': code ==undefined,
+                    'grey-border-color': code!=undefined
+                  }">
+                <div fxFlex="10" fxLayoutAlign="start center">
+                    <span class="material-icons-outlined f-s-38 grey-color">confirmation_number</span>
+                </div>
+                <div fxFlex="80" fxLayout="column" class="black-color body2-semibold" fxLayoutAlign="center start">
+                    <div>
+                        No coupon applied
+                    </div>
+                </div>
+                <div fxFlex="10" fxLayoutAlign="end center">
+                    <mat-radio-button [value]=undefined (click)="selectCoupon(undefined)"></mat-radio-button>
+                </div>
+
+            </div>
+            <div *ngFor="let c of coupons" fxLayout="column" class="b-r-5 m-b-15" (click)="selectCoupon(c)" [ngClass]="{
+                    'primary-border-color': c.code == code && selectedTab == AVAILABLE ,
+                    'grey-border-color': c.code != code || selectedTab == UNAVAILABLE ,
+                    'pointer':selectedTab == AVAILABLE 
+                  }">
+                <div fxLayout="row" class="box">
+                    <div fxFlex="10" fxLayoutAlign="start center">
+                        <span class="material-icons-outlined" [ngClass]="{
+                            'primary-color': selectedTab == AVAILABLE,
+                            'grey-color': selectedTab == UNAVAILABLE
+                            }" >confirmation_number</span>
+                    </div>
+                    <div fxFlex="80" fxLayout="column" class="black-color" fxLayoutAlign="center start">
+                        <div *ngIf="!c.description" class="body2-bold">
+                            <span *ngIf="c.value && c.value>0">{{c.value | currency}}</span>
+                            <span *ngIf="c.percentage && c.percentage>0">{{c.percentage}} %</span>
+                        </div>
+                        <div *ngIf="c.description">
+                            {{c.description}}
+                        </div>
+                        <div *ngIf="c.minimum! > 0" class="dark-grey-color">
+                            valid for orders over {{c.minimum|currency}}
+                        </div>
+                    </div>
+                    <div fxFlex="10" fxLayoutAlign="end center">
+                        <mat-radio-button *ngIf="selectedTab == AVAILABLE" name="opCoupons" [value]="c.code"
+                            (click)="selectCoupon(c)"></mat-radio-button>
+                    </div>
+                </div>
+                <div fxLayout="row" class="coupon-instruction">
+                    <div fxFlex="20" class="primary-color rules-instruction">
+                        See rules
+                    </div>
+                    <div fxFlex="80" class="dark-grey-color valid-instrustion">
+                        Valid until {{c.finalValidity | date : "dd/MM"}}
+                    </div>
+                </div>
+                <div fxLayout="row" *ngIf="selectedTab != AVAILABLE"
+                    class="light-grey-background-color coupon-instruction-unavailable">
+                    <mat-icon class="dark-grey-color mat-icon-instruction" matPrefix>alarm</mat-icon>
+                    <span class="dark-grey-color">The expiry date has expired</span>
+                </div>
+            </div>
+        </mat-radio-group>
+    </div>
+
+</div>

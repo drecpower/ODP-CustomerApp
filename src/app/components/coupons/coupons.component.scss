@@ -1,0 +1,52 @@
+.m-t-10 {
+    margin-top: 10px;
+}
+.box {
+    padding: 15px;
+}
+.m-b-15 {
+    margin-bottom: 15px;
+}
+
+::ng-deep .mat-dialog-container {
+    padding: 0px !important;
+}
+input {
+    height: 40px;
+    border-radius: 5px;
+}
+.header {
+    padding: 10px 15px 10px 15px;
+    text-align: center;
+    height: 50px;
+}
+.item-content {
+    padding: 10px 0px 10px 0px;
+    width: 100%;
+}
+.coupon-instruction-unavailable {
+    height: 20px;
+    padding-left: 15px;
+    border-radius: 0px 0px 5px 5px;
+}
+.coupon-instruction {
+    height: 15px;
+    border-radius: 0px 0px 5px 5px;
+    margin-bottom: 10px;
+    padding-right: 20px;
+    padding-left: 15px;
+}
+.valid-instrustion{
+    text-align: right;
+}
+.rules-instruction{
+    text-align: left;
+}
+.mat-icon-instruction{
+    font-size: 15px !important;
+    padding-right: 5px;
+    padding-top: 3px;
+}
+mat-tab-group {
+    width: 100%;
+}

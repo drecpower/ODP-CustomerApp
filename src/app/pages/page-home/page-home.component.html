@@ -1,0 +1,104 @@
+<ng-container *ngIf="router.routerState.snapshot.url!='/auth' ">
+  <mat-sidenav-container class="sidenav-container" fxFill [@fadeInOutAnimation]>
+    <mat-sidenav #drawer class="sidenav noprint" fixedInViewport
+      [attr.role]="(appshell.isHandset$ | async) ? 'dialog' : 'navigation'" [class.mat-elevation-z10]="true"
+      [mode]="(appshell.isHandset$ | async) ? 'over' : 'side'" [opened]="(appshell.isHandset$ | async) === false">
+
+      <div fxLayout="column" fxLayoutAlign="center center" class="white-background-color"
+        [class.mat-elevation-z2]="true">
+        <img src="assets/imgs/logo.png" class="img-logo">
+
+      </div>
+
+      <mat-nav-list class="inne">
+        <div class="menutitle" fxLayout="row" fxLayoutAlign="center center">
+          <b class="b-main-catalog">
+            Main Catalog
+          </b>
+        </div> 
+
+        <a class="menuitem" *ngIf="user.Can('dashboard')" mat-list-item routerLink="/catalog" routerLinkActive="active"
+          (click)="hideCatalog(drawer)">
+          <mat-icon>dashboard</mat-icon> &nbsp; Catalog
+        </a>
+        
+
+        <div fxLayout="column" fxLayoutAlign="center stretch" class="div-line">
+        </div>
+
+        <a class="menuitem" *ngIf="user.Can('tokens')" mat-list-item routerLink="/choose-order-type" routerLinkActive="active"
+          (click)="hideCatalog(drawer)">
+          <mat-icon>local_activity</mat-icon> &nbsp; My Address
+        </a>
+
+        <div fxLayout="column" fxLayoutAlign="center stretch" class="div-line">
+        </div>
+
+        <a class="menuitem" mat-list-item routerLink="/choose-game" routerLinkActive="active"
+          (click)="hideCatalog(drawer)">
+          <mat-icon>exit_to_app</mat-icon> &nbsp; Contact
+        </a>
+        <div fxLayout="column" fxLayoutAlign="center stretch" class="div-line">
+        </div>
+
+      </mat-nav-list>
+
+      <div class="div-app-version">
+        v{{appshell.version}}
+      </div>
+
+
+    </mat-sidenav>
+    <mat-sidenav-content fxLayout="column" class="toprint">
+      <app-header [drawer]="drawer"></app-header>
+
+      <!-- <div fxFlex class="toprint" [@fadeInOutAnimation]
+        [@routeAnimations]="router.routerState.snapshot.url.substring(1).replace('/','')">
+
+      </div>  -->
+      <!-- <div fxLayout="row wrap">
+        <mat-icon class="primary-color primary-color-stroke" matPrefix [svgIcon]="icons.arrowdown"></mat-icon>
+        <mat-icon class="primary-color primary-color-stroke" matPrefix [svgIcon]="icons.arrowup"></mat-icon>
+        <mat-icon class="primary-color primary-color-stroke" matPrefix [svgIcon]="icons.back"></mat-icon>
+        <mat-icon class="primary-color primary-color-stroke" matPrefix [svgIcon]="icons.bag"></mat-icon>
+        <mat-icon class="primary-color primary-color-stroke" matPrefix [svgIcon]="icons.calendar"></mat-icon>
+        <mat-icon class="primary-color primary-color-stroke" matPrefix [svgIcon]="icons.check"></mat-icon>
+        <mat-icon class="primary-color primary-color-stroke" matPrefix [svgIcon]="icons.clock"></mat-icon>
+        <mat-icon class="primary-color primary-color-stroke" matPrefix [svgIcon]="icons.close"></mat-icon>
+        <mat-icon class="primary-color primary-color-stroke" matPrefix [svgIcon]="icons.eyeclosed"></mat-icon>
+        <mat-icon class="primary-color primary-color-stroke" matPrefix [svgIcon]="icons.eye"></mat-icon>
+        <mat-icon class="primary-color primary-color-stroke" matPrefix [svgIcon]="icons.facebook"></mat-icon>
+        <mat-icon class="primary-color primary-color-stroke" matPrefix [svgIcon]="icons.hamburger"></mat-icon>
+        <mat-icon class="primary-color primary-color-stroke" matPrefix [svgIcon]="icons.instagram"></mat-icon>
+        <mat-icon class="primary-color primary-color-stroke" matPrefix [svgIcon]="icons.phone"></mat-icon>
+        <mat-icon class="primary-color primary-color-stroke" matPrefix [svgIcon]="icons.pin"></mat-icon>
+        <mat-icon class="primary-color primary-color-stroke" matPrefix [svgIcon]="icons.search"></mat-icon>
+        <mat-icon class="primary-color-stroke" matPrefix [svgIcon]="icons.share"></mat-icon>
+        <mat-icon class="primary-color primary-color-stroke" matPrefix [svgIcon]="icons.plus"></mat-icon>
+        <mat-icon class="primary-color primary-color-stroke" matPrefix [svgIcon]="icons.plusdisabled"></mat-icon>
+        <mat-icon class="primary-color primary-color-stroke" matPrefix [svgIcon]="icons.minus"></mat-icon>
+        <mat-icon class="primary-color primary-color-stroke" matPrefix [svgIcon]="icons.minusdisabled"></mat-icon>
+        <mat-icon class="primary-color primary-color-stroke" matPrefix [svgIcon]="icons.closesmall"></mat-icon>
+        <mat-icon class="primary-color primary-color-stroke" matPrefix [svgIcon]="icons.plussmall"></mat-icon>
+      </div>
+      <app-page-payment></app-page-payment>
+      <app-page-address></app-page-address> -->
+      <!-- <div class="catalog light-grey-background-color" (click)="goCatalog()" fxLayoutAlign="center center">
+        Catalog
+      </div> -->
+      <div class="content" fxLayout="column">
+        <button  class="catalog light-grey-background-color" mat-button (click)="goCatalog()">Catalog</button>
+        <button class="catalog light-grey-background-color" mat-button (click)="open()">
+          Test
+        </button>
+        <button class="catalog light-grey-background-color" mat-button (click)="confirm()">
+          Confirm
+        </button>
+        <app-cart-confirmation></app-cart-confirmation>
+      </div>
+
+      <!-- <app-choose-order-type></app-choose-order-type> -->
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+</ng-container>

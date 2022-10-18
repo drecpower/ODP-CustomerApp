@@ -1,0 +1,24 @@
+<div class="content" fxLayout="column">
+  <div class="header light-grey-border-bottom-color" fxLayout="row wrap" fxLayoutAlign="center center">
+      <div class="heading3">{{data.title}}</div>
+      <div class="close-icon">
+          <mat-icon (click)="close()" class="primary-color primary-color-stroke" matPrefix [svgIcon]="icons.closesmall"></mat-icon>
+
+      </div>
+  </div>
+
+  <div *ngFor="let ct of data.cardTypes" (click)="close(ct)" >
+     <div class="item-content light-grey-border-bottom-color" fxLayout="row" fxLayoutAlign="center center">
+        <div fxFlex="10">
+          <mat-icon class="primary-color primary-color-stroke" matPrefix>{{ct.icon}}</mat-icon>
+        </div>
+        <div fxFlex fxLayout="column" fxLayoutAlign="start start">
+          <div class="body3">
+            {{ct.name}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+

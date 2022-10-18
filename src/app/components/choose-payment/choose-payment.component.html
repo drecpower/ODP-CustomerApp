@@ -1,0 +1,23 @@
+<div class="content" fxLayout="column">
+    <div class="header" fxLayout="row wrap" fxLayoutAlign="center center">
+        <div fxFlex="30" fxLayoutAlign="start center"class="close-icon">
+            <mat-icon mat-dialog-close class="primary-color primary-color-stroke" matPrefix [svgIcon]="icons.back"></mat-icon>
+        </div>
+        <div fxFlex="40" class="heading3">{{data.title}}</div>
+        <div fxFlex="30"> </div>
+    </div>
+
+    <div class="item-content" fxLayout="row" fxLayoutAlign="start center">
+        <mat-tab-group animationDuration="0ms" #tabRef [selectedIndex]="selectedTab" (selectedTabChange)="selectTab(tabRef.selectedIndex)" mat-align-tabs="center">
+            <mat-tab label="Pay By App"></mat-tab>
+            <mat-tab label="Pay on Delivery"></mat-tab>
+        </mat-tab-group>
+    </div>
+
+    <app-choose-payment-by-app  *ngIf="selectedTab == 0"></app-choose-payment-by-app>
+    <app-choose-payment-on-delivery *ngIf="selectedTab == 1"></app-choose-payment-on-delivery>
+
+    <div fxFlex></div>
+    <div class="footer light-grey" fxLayout="row" fxLayoutAlign="center center"></div>
+</div>
+

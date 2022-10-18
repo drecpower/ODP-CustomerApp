@@ -1,0 +1,142 @@
+.content {
+    margin: -24px;
+    height: 100vh;
+}
+
+.order{
+    padding :10px 15px 0px 15px;
+}
+.quantity{
+    width: 18px;
+    text-align: center;
+    margin-right: 10px;
+    margin-bottom: 4px;
+}
+.header {
+    position: sticky;
+    width: 100%;
+    padding:10px 15px;
+}
+.close-icon {
+}
+.help {
+    text-align: right;
+}
+.display-id {
+    text-align: left;
+}
+
+.date {
+    text-align: left;
+}
+
+.status {
+    text-align: center;
+    padding: 5px;
+    border-radius: 2px;
+}
+
+.check-circle {
+    height: 17px;
+    font-size: 16px;
+    vertical-align: sub;
+}
+
+.order-status {
+    padding: 0 5 0 5;
+}
+
+.item {
+    padding: 10px 0px 10px 0px;
+}
+
+.quantity {
+    padding: 1px 4px 1px 4px;
+    border-radius: 5px;
+}
+.price {
+    text-align: right;
+}
+
+.totals {
+    padding-top: 10px;
+}
+
+.subtotal {
+    padding-top: 5px;
+}
+
+.delivery {
+    padding-top: 5px;
+}
+
+.coupon {
+    padding-top: 5px;
+}
+
+.coupon-value {
+    text-align: right;
+}
+
+.subtotal-value {
+    text-align: right;
+}
+
+.total {
+    padding: 10px 0px 10px 0px;
+}
+.total-value {
+    text-align: right;
+}
+
+.payment {
+    padding: 10px 0px 10px 0px;
+}
+
+.payment-card {
+    text-align: right;
+}
+
+.address {
+    padding: 15px 0px 10px 0px;
+    margin-bottom: 20px;
+}
+
+
+.address-value {
+    padding: 7px 0px 0px 0px;
+}
+
+.add-to-cart{
+    padding-bottom: 20px;
+}
+
+.btn {
+    width: 100%;
+    background-color: #ffffff00;
+}
+
+button:disabled,
+button[disabled] {
+    border: 1px solid #999999 !important;
+    background-color: #cccccc !important;
+    color: #666666 !important;
+}
+
+.rate{
+    padding: 14px;
+    width: 100%;
+    border-radius: 3px;
+}
+
+.footer{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.star{
+    padding: 10px 10px 15px 0px;
+    font-size: 28px
+}

@@ -1,0 +1,42 @@
+<div class="light-grey-border-bottom-color">
+    <app-address-header></app-address-header>
+    <div class="break"></div>
+    <div class="content" fxLayout="column">
+        <div fxFlex="100" fxLayout="column">
+            <div class="div-title-logo" fxLayoutAlign="start">
+                <div fxFlex="70" fxLayout="column">
+                    <div class="heading2" fxFlex="100">
+                        {{selectedSvc.selectedMerchantGroup?.name}}
+                    </div>
+                    <div fxFlex="100" class="dark-grey-color">
+                        {{ selectedSvc.selectedMerchant?.name}} • 3,3 km
+                    </div>
+                </div>
+                <div fxFlex="30" class="div-img" fxLayoutAlign="end center">
+                    <img class="img-logo" src="assets/imgs/sushi.png" (click)="appshellSvc.tst()" />
+                </div>
+            </div>
+        </div>
+        <div fxFlex="100" class="div-delivery">
+            <div fxFlex="30" class="div-btn-delivey" fxLayout="column">
+                <button mat-raised-button class="btn light-grey-background-color" (click)="changeOrderType()">
+                    <span *ngIf="cartSvc.orderType==OrderType.DELIVERY">Delivery</span>
+                    <span *ngIf="cartSvc.orderType==OrderType.TAKEOUT">Takeout</span>
+                    <mat-icon class="mat-icon-delivery primary-color">keyboard_arrow_down</mat-icon>
+                </button>
+                <!-- <p class="body2">Delivery forecast</p>
+                <p class="less-margin-top dark-grey-color">40 min</p> -->
+            </div>
+            <div fxFlex="70" fxLayout="column">
+                <button mat-raised-button class="btn light-grey-background-color" (click)="changeDeliveryTimeWindow()">
+                    Today, 40-60min • {{cartSvc.deliveryFee|currency}}
+                    <mat-icon class="mat-icon-today primary-color">keyboard_arrow_down</mat-icon>
+                </button>
+                <!-- <p class="body2">Delivery Fee</p>
+                <p class="less-margin-top success-color" *ngIf="!(cartSvc.deliveryFee>0)">Free</p>
+                <p class="less-margin-top" *ngIf="cartSvc.deliveryFee>0">{{cartSvc.deliveryFee|currency}}</p> -->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="break"></div>

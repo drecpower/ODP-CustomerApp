@@ -1,0 +1,9 @@
+<div fxFill.xs [@slideInOutAnimation] *ngIf="id && !pizza" class="modal-top item-detail" fxLayoutAlign.gt-sm="center center">
+    <app-catalog-item-detail [id]="id" fxFlex.gt-sm="90"></app-catalog-item-detail>
+</div>
+<div fxFill.xs [@slideInOutAnimation] *ngIf="pizza" class="modal-top item-detail" fxLayoutAlign.gt-sm="center center">
+    <app-catalog-pizza-detail [id]="pizza.id!" [pizza]="pizza!" fxFlex.gt-sm="90"></app-catalog-pizza-detail>
+</div>
+<div fxFill class="content" fxLayoutAlign.gt-md="center stretch">
+    <app-catalog fxFlex></app-catalog>
+</div>

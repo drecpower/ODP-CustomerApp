@@ -1,0 +1,505 @@
+/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+
+@include mat.core();
+
+@import "variables.scss";
+
+@include mat.all-component-themes($my-theme);
+
+// $primary-color:#fc9127;
+
+html,
+body {
+    height: 100%;
+    overscroll-behavior-y: contain;
+}
+body {
+    margin: 0;
+    font-family: "Nunuto-Sans", "Helvetica Neue", sans-serif !important;
+}
+
+.modal-top {
+    position: fixed;
+    z-index: 999999999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+}
+
+//----pointer ----
+mat-icon {
+    cursor: pointer;
+}
+.pointer {
+    cursor: pointer;
+}
+[ng-reflect-router-link]:hover {
+    cursor: pointer;
+}
+
+[ng-reflect-router-link] {
+    cursor: pointer;
+}
+
+//----light-black-color ----
+.light-black-color {
+    color: $light-black-color;
+}
+
+//bodys
+// .body0 {
+//     font-weight: 500;
+//     @extend .black;
+//     font-size: 20px;
+// }
+.body1 {
+    font-weight: 400;
+    @extend .light-black-color;
+    font-size: 16px;
+}
+.body2 {
+    font-weight: 400;
+    @extend .light-black-color;
+    font-size: 15px;
+}
+.body3 {
+    font-weight: 400;
+    @extend .light-black-color;
+    font-size: 14px;
+}
+.body4 {
+    font-weight: 400;
+    @extend .light-black-color;
+    font-size: 12px;
+}
+.body5 {
+    font-weight: 400;
+    @extend .light-black-color;
+    font-size: 10px;
+}
+.body1-semibold {
+    @extend .light-black-color;
+    font-size: 16px;
+    font-weight: 500;
+}
+.body2-semibold {
+    @extend .light-black-color;
+    font-size: 15px;
+    font-weight: 500;
+}
+.body3-semibold {
+    @extend .light-black-color;
+    font-size: 14px;
+    font-weight: 500;
+}
+.body4-semibold {
+    @extend .light-black-color;
+    font-size: 12px;
+    font-weight: 500;
+}
+.body5-semibold {
+    @extend .light-black-color;
+    font-size: 10px;
+    font-weight: 500;
+}
+.body1-bold {
+    @extend .light-black-color;
+    font-size: 16px;
+    font-weight: 700;
+}
+.body2-bold {
+    @extend .light-black-color;
+    font-size: 15px;
+    font-weight: 700;
+}
+.body3-bold {
+    @extend .light-black-color;
+    font-size: 14px;
+    font-weight: 700;
+}
+.body4-bold {
+    @extend .light-black-color;
+    font-size: 12px;
+    font-weight: 700;
+}
+.body5-bold {
+    @extend .light-black-color;
+    font-size: 10px;
+    font-weight: 700;
+}
+.body4-overline {
+    @extend .light-black-color;
+    font-size: 12px;
+    font-weight: 400;
+    text-decoration: line-through;
+    line-height: 14px;
+}
+
+//headings
+
+.heading1 {
+    @extend .light-black-color;
+    font-size: 24px;
+    font-weight: 700;
+}
+.heading2 {
+    @extend .light-black-color;
+    font-size: 20px;
+    font-weight: 700;
+}
+.heading3 {
+    @extend .light-black-color;
+    font-size: 18px;
+    font-weight: 700;
+}
+.heading2-regular {
+    @extend .light-black-color;
+    font-size: 20px;
+    font-weight: 500;
+}
+.heading3-regular {
+    @extend .light-black-color;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+//x primary/success/warning
+//y: ''/border/background/
+//x-y-color
+
+//--------primary--------
+
+$colors: (
+    primary:$primary,
+    success:$success,
+    warning:$warning,
+    error:$error,
+    darker:$darker,
+    light-grey:$light-grey,
+    grey:$grey,
+    dark-grey:$dark-grey,
+    white:$white,
+    white-60:$white-60,
+    white-80:$white-80,
+    black:$black,
+    light-black-color:$light-black-color,
+    green:$green,
+    white-opacity:$white-opacity,
+    extra-light-grey:$extra-light-grey
+);
+@each $colorname, $color in $colors {
+    .#{""+$colorname}-color {//Ex: primary-color
+        color: $color;
+    }
+    .#{""+$colorname}-border-color {//Ex: primary-border-color
+        border: solid 1px $color;
+    }
+    .#{""+$colorname}-border-bottom-color {//Ex: primary-border-bottom-color
+        border-bottom: solid 1px $color;
+    }
+    .#{""+$colorname}-border-top-color {//Ex: primary-border-bottom-color
+        border-top: solid 1px $color;
+    }
+    .#{""+$colorname}-background-color {//Ex: primary-background-color
+        background-color: $color;
+    }
+    button.#{""+$colorname}-border-color {//Ex button.primary-border-color
+        border: solid 1px $color;
+    }
+    .#{""+$colorname}-color svg > g > path {//primary-color svg > g > path
+        fill: $color;
+    }
+    .#{""+$colorname}-color-stroke { //primary-color-stroke
+        stroke: $color;
+    }
+    .button-#{""+$colorname}-color { //Ex: button-primary-color
+        background-color: $color;
+        color: white;
+    }
+    
+}
+.icon-disabled{
+     color:$disabled-icon-color;
+}
+.button-disabled {
+    background-color: lightgrey;
+    color: grey;
+}
+ .mat-tab-label {
+    width: 100%;
+  }
+ .mat-tab-label-active {
+    color:$primary !important;
+  }
+// .primary-color {
+//     color: $primary-color;
+// }
+// .primary-border-color {
+//     border: solid 1px $primary-color;
+// }
+// .primary-background-color {
+//     background-color: $primary-color;
+// }
+// button.primary-border-color {
+//     border: solid 1px $primary-color;
+// }
+// .primary-color svg > g > path {
+//     fill: $primary-color;
+// }
+// .primary-color-stroke {
+//     stroke: $primary-color;
+// }
+
+
+// //----success----
+// .success-color {
+//     color: #50a773;
+// }
+// .success-border-color {
+//     border: solid 1px #50a773;
+// }
+// .success-background-color {
+//     background-color: #50a773;
+// }
+// button.success-border-color {
+//     border: solid 1px #50a773;
+// }
+// .success-color-stroke {
+//     stroke: #50a773;
+// }
+
+// //----warning----
+// .warning-color {
+//     color: #ffa124;
+// }
+// .warning-border-color {
+//     border: solid 1px #ffa124;
+// }
+// .warning-background-color {
+//     background-color: #ffa124;
+// }
+// button.warning-border-color {
+//     border: solid 1px #ffa124;
+// }
+// .warning-color-stroke {
+//     stroke: #ffa124;
+// }
+
+// //----error----
+// .error-color {
+//     color: #ee4c58;
+// }
+// .error-border-color {
+//     border: solid 1px #ee4c58;
+// }
+// .error-background-color {
+//     background-color: #ee4c58;
+// }
+// button.error-border-color {
+//     border: solid 1px #ee4c58;
+// }
+// .error-color-stroke {
+//     stroke: #ee4c58;
+// }
+// //----darker----
+// .darker-color {
+//     color: #fa7424;
+// }
+// .darker-border-color {
+//     border: solid 1px #fa7424;
+// }
+// .darker-background-color {
+//     background-color: #fa7424;
+// }
+// button.darker-border-color {
+//     border: solid 1px #fa7424;
+// }
+// .darker-color-stroke {
+//     stroke: #fa7424;
+// }
+
+// //----light-grey----
+// .light-grey-color {
+//     color: #dcdcdc;
+// }
+// .light-grey-border-color {
+//     border: solid 1px #dcdcdc;
+// }
+// .light-grey-background-color {
+//     background-color: #dcdcdc;
+// }
+// .light-grey-border-bottom-color {
+//     border-bottom: solid 1px #dcdcdc;
+// }
+// .light-grey-color-stroke {
+//     stroke: #dcdcdc;
+// }
+
+// //----grey-color----
+// .grey-color {
+//     color: #a6a5a5;
+// }
+// .grey-border-color {
+//     border: solid 1px #a6a5a5;
+// }
+// .grey-background-color {
+//     background-color: #a6a5a5;
+// }
+// button.grey-border-color {
+//     border: solid 1px #a6a5a5;
+// }
+// .grey-color-stroke {
+//     stroke: #a6a5a5;
+// }
+// //----dark-grey-color----
+// .dark-grey-color {
+//     color: #717171;
+// }
+// .dark-grey-border-color {
+//     border: solid 1px #717171;
+// }
+// .dark-grey-background-color {
+//     background-color: #717171;
+// }
+// button.dark-grey-border-color {
+//     border: solid 1px #717171;
+// }
+// .dark-grey-color-stroke {
+//     stroke: #717171;
+// }
+// //----white----
+// .white-color {
+//     color: #fefefe;
+// }
+// .white-border-color {
+//     border: solid 1px #fefefe;
+// }
+// .white-background-color {
+//     background-color: #fefefe;
+// }
+// button.white-border-color {
+//     border: solid 1px #fefefe;
+// }
+// .white-color-stroke {
+//     stroke: #fefefe;
+// }
+
+// //----white-60----
+// .white-60-color {
+//     color: #f2f2f2;
+// }
+// .white-60-border-color {
+//     border: solid 1px #f2f2f2;
+// }
+// .white-60-background-color {
+//     background-color: #f2f2f2;
+// }
+// button.white-60-border-color {
+//     border: solid 1px #f2f2f2;
+// }
+// .white-60-color-stroke {
+//     stroke: #f2f2f2;
+// }
+
+// //----white-80----
+// .white-80-color {
+//     color: #fcfcfc;
+// }
+// .white-80-border-color {
+//     border: solid 1px #fcfcfc;
+// }
+// .white-80-background-color {
+//     background-color: #fcfcfc;
+// }
+// button.white-80-border-color {
+//     border: solid 1px #fcfcfc;
+// }
+// .white-80-color-stroke {
+//     stroke: #fcfcfc;
+// }
+
+// //----black----
+// .black-color {
+//     color: #000000;
+// }
+// .black-border-color {
+//     border: solid 1px #000000;
+// }
+// .black-background-color {
+//     background-color: #000000;
+// }
+// button.black-border-color {
+//     border: solid 1px #000000;
+// }
+// .black-color-stroke {
+//     stroke: #000000;
+// }
+// //----green----
+// .green-color {
+//     color: green;
+// }
+// .green-border-color {
+//     border: solid 1px green;
+// }
+// .green-background-color {
+//     background-color: green;
+// }
+// button.green-border-color {
+//     border: solid 1px green;
+// }
+
+.font-size-11 {
+    font-size: 11px;
+}
+
+.b-r-3 {
+    border-radius: 3px;
+}
+.b-r-5 {
+    border-radius: 5px;
+}
+
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
+.n-p {
+    padding: 0px !important;
+}
+// .mat-radio-button.mat-accent .mat-radio-inner-circle{
+//     background-color: $primary  !important;
+// }
+// .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+//     border-color: $primary;
+// }
+
+// .loading-text{
+//     text-align: center;
+//     width: 100%;
+// }
+.very-rounded{
+    padding: 5px 10px;
+    text-align: center;
+    display: inline-block;
+    white-space: nowrap;
+    border-radius: 30px;
+}
+.little-rounded{
+    padding: 5px 10px;
+    text-align: center;
+    display: inline-block;
+    white-space: nowrap;
+    border-radius: 5px;
+}
+.text-left{
+    text-align: left;
+}
+.divider{
+    padding:10px 0px;
+}
+// app-loading{
+//     height: 100%;
+// }

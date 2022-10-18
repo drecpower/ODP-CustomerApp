@@ -1,0 +1,49 @@
+.content {
+    padding: 10px 15px 0px 15px;
+}
+img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+.item {
+    padding: 10px 0px 10px 0px;
+}
+.add-more{
+    padding: 10px;
+}
+.counter{
+    width: 18px;
+    height: 19px;
+    border-radius: 50%;
+    padding-top: 2px;
+    float: right;
+    bottom: 10px;
+    right: 5px;
+    position: absolute;
+}
+.image{
+    position: relative;
+    // width: 50px;
+    // height: 50px;
+}
+.quantity{
+    width: 18px;
+    text-align: center;
+    margin-right: 10px;
+    margin-bottom: 4px;
+}
+.img-item {
+    border-radius: 5px;
+    object-fit: cover;
+    @media (min-width: 480px) {
+        width: 60px;
+        height: 60px;
+    }
+
+    @media (min-width: 600px) {
+        width: 146px;
+        height: 146px;
+    }
+}

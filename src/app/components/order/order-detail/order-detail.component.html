@@ -1,0 +1,174 @@
+<div class="content extra-light-grey-background-color">
+    <div class="header white-background-color" fxLayout="row wrap" fxLayoutAlign="center center">
+        <div fxFlex="30" fxLayoutAlign="start center" class="close-icon">
+            <mat-icon (click)="back()" class="primary-color primary-color-stroke" matPrefix [svgIcon]="icons.back">
+            </mat-icon>
+        </div>
+        <div fxFlex="40" class="heading4" fxLayoutAlign="center center">ORDER DETAIL </div>
+        <div fxFlex="30" class="help primary-color"> Help</div>
+    </div>
+
+    <div class="body" *ngIf="order">
+        <div class="order white-background-color" fxLayout="column">
+            <div fxLayout="column">
+                <div class="display-id heading1">Order nº {{order.displayId}} </div>
+                <div class="date body4 grey-color">{{order.createdAt |date:"HH:mm - dd/MM/yyyy"}}</div>
+            </div>
+            <div class="status extra-light-grey-background-color extra-light-grey-border-color"
+                fxLayoutAlign="center center">
+                <mat-icon class="check-circle success-color">check_circle</mat-icon>
+                {{order.status}} - {{order.createdAt |date:"HH:mm - dd/MM/yyyy"}}
+            </div>
+            <mat-expansion-panel *ngIf="order.status!='CON'" (opened)="panelOpenState = true"
+                (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <div *ngFor="let s of order.orderEvent; let i = index">
+                            <div *ngIf="i==0">
+                                Status: {{s.code}} {{s.createdAt|date:"HH:mm - dd/MM/yyyy"}}
+                            </div>
+                        </div>
+                    </mat-panel-title>
+                    <mat-panel-description>Order Status
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div *ngFor="let s of order.orderEvent; let i = index">
+                    <div class="order-status black-color grey-border-bottom-color" *ngIf="i>0">
+                        Status: {{s.code}} {{s.createdAt |date:"HH:mm - dd/MM/yyyy"}}
+                    </div>
+                </div>
+
+            </mat-expansion-panel>
+            <div>
+
+            </div>
+
+            <div class="items">
+                <div class="item" fxLayout="row" *ngFor="let it of order.orderItem!">
+                    <div fxFlex="10">
+                        <span class="quantity primary-background-color white-color">
+                            {{it.quantity}}
+                        </span>
+                    </div>
+                    <div class="description" fxFlex="70" fxLayout="column">
+                        <div class="body2">
+                            <span>{{it.itemIdNavigation?.productIdNavigation?.name}}</span>
+                        </div>
+
+                        <div class="body2 grey-color description-detail">{{it.observations}}</div>
+                        <div class="body2 grey-color" *ngFor="let oio of it.orderItemOption">
+                            <div fxLayout="row wrap">
+                                <div class="quantity white-60-background-color">
+                                    <span>{{oio.quantity}}</span>
+                                </div>
+                                <span *ngIf="it.fractions && it.fractions! > 1 && oio.type == 'FLAVOR'">
+                                    {{"1/" + it.fractions }} &nbsp;
+                                </span>
+                                {{oio.optionIdNavigation?.productIdNavigation?.name}}
+                            </div>
+                        </div>
+                        
+                        <!-- <div class="title-description">
+                            {{it.itemIdNavigation?.productIdNavigation?.name}}
+                            <div class="description-detail grey-color">
+                                {{it.observations}}
+                            </div>
+                        </div>
+                        <div class="title-description" *ngIf="it.type == 'PIZZA'">
+                            <div *ngFor="let oio of it.orderItemOption">
+                                {{ oio.quantity }} - {{ "1/" + it.fractions + " __ " +
+                                oio.optionIdNavigation?.productIdNavigation?.name}} <br />
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="body2-bold price" fxFlex="20">
+                        {{((it.unitPrice ?it.unitPrice :0)* (it.quantity?it.quantity:0))|
+                        currency}}
+                    </div>
+                    <!-- <div class="price" fxFlex="20">
+                        {{((it.unitPrice ?it.unitPrice :0)* (it.quantity?it.quantity:0))|
+                        currency}}
+                    </div> -->
+                </div>
+            </div>
+            <div class="totals">
+                <div class="subtotal" fxLayout="row">
+                    <div fxFlex="50" class="total-titles body3">Subtotal </div>
+                    <div fxFlex="50" class="subtotal-value">{{order.subTotal| currency}} </div>
+                </div>
+                <div class="coupon" fxLayout="row" *ngIf="order.benefits">
+                    <div fxFlex="50" class="total-titles body3">Coupon </div>
+                    <div fxFlex="50" class="coupon-value success-color">- {{order.benefits| currency}} </div>
+
+                </div>
+                <div class="delivery" fxLayout="row">
+                    <div fxFlex="50" class="total-titles body3">Delivery </div>
+                    <div *ngIf="order.deliveryFee && order.deliveryFee > 0" fxFlex="50" class="subtotal-value">
+                        {{order.deliveryFee| currency}} </div>
+                    <div *ngIf="!(order.deliveryFee && order.deliveryFee > 0)" fxFlex="50"
+                        class="subtotal-value success-color">Free</div>
+                </div>
+                <div class="total light-grey-border-bottom-color" fxLayout="row">
+                    <div fxFlex="50" class="total-title heading2">Total </div>
+                    <div fxFlex="50" class="total-value heading2">{{(order.subTotal?order.subTotal:0) +
+                        (order.deliveryFee?order.deliveryFee:0) - (order.benefits?order.benefits:0) |
+                        currency}} </div>
+                </div>
+
+            </div>
+            <div class="payment light-grey-border-bottom-color" fxLayout="row">
+                <div fxFlex="50" class="payment-name body2">Paid by app</div>
+                <div fxFlex="50" class="payment-card body2">****9157</div>
+            </div>
+            <div class="address light-grey-border-bottom-color"
+                *ngIf="order.orderType == 'DELIVERY' || order.orderType == 'TAKEOUT'">
+                <div class="body5 grey-color">
+                    <span *ngIf="order.orderType == 'DELIVERY'"> Delivery Address</span>
+                    <span *ngIf="order.orderType == 'TAKEOUT'"> Pick up Address</span>
+                </div>
+                <div class="address-valor">{{order.addressIdNavigation?.streetName}} ,
+                    {{order.addressIdNavigation?.streetNumber}}
+                    <span *ngIf="order.addressIdNavigation?.complement">(
+                        {{order.addressIdNavigation?.complement}} )</span>
+                    - {{order.addressIdNavigation?.neighborhood}} ,
+                    {{order.addressIdNavigation?.city}} -
+                    {{order.addressIdNavigation?.state}}
+
+                </div>
+
+
+            </div>
+        </div>
+        <div class="white-background-color" fxLayout="row" fxLayoutAlign="center center">
+            <div class="add-to-cart" fxLayoutAlign="center center">
+                <button mat-button class="btn primary-color" (click)="add()">
+                    Add to cart
+                </button>
+            </div>
+        </div>
+
+    </div>
+    <div class="footer" fxLayout="row">
+        <div class="rate white-background-color mat-elevation-z5" fxLayout="column">
+            <div>
+                <span class="heading2">Rate your order</span>
+            </div>
+            <div fxFlex="50">
+                <!-- <mat-icon class="star">star_border</mat-icon>
+                <mat-icon class="star">star_border</mat-icon>
+                <mat-icon class="star">star_border</mat-icon>
+                <mat-icon class="star">star_border</mat-icon>
+                <mat-icon class="star">star_border</mat-icon> -->
+
+                <mat-icon class="star light-grey-color">star</mat-icon>
+                <mat-icon class="star light-grey-color">star</mat-icon>
+                <mat-icon class="star light-grey-color">star</mat-icon>
+                <mat-icon class="star light-grey-color">star</mat-icon>
+                <mat-icon class="star light-grey-color">star</mat-icon>
+            </div>
+            <div>
+                <span class="grey-color">Choose from 1 to 5 stars to rank</span>
+            </div>
+        </div>
+    </div>
+</div>

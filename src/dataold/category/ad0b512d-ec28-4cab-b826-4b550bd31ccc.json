@@ -1,0 +1,20 @@
+{
+    "catalogId": "09902262-27f3-4b9c-b92d-2a95337d5cb4",
+    "createdAt": "2020-09-10 22:33:10",
+    "externalCode": "10",
+    "index": 0,
+    "name": "Snacks",
+    "status": "active",
+    "id": "ad0b512d-ec28-4cab-b826-4b550bd31ccc",
+    "template": "DEFAULT",
+    "item": [
+        {
+            "id": "a56abe61-68ae-47a9-bd86-e29713744196",
+            "createdAt": "2020-09-10 22:33:10",
+            "externalCode": "229",
+            "index": 0,
+            "productId": "270a898f-3140-465f-af16-3b239ed321cc",
+            "price": 25.34,
+            "status": "active"
+        }]
+}

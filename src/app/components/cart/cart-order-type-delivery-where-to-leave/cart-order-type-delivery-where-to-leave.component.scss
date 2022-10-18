@@ -1,0 +1,42 @@
+
+.m-t-20 {
+  margin-top: 20px;
+}
+
+.m-t-6 {
+  margin-top: 6px;
+}
+.f-s-35 {
+  font-size: 35px;
+}
+.m-t-10 {
+  margin-top: 10px;
+}
+.leave-order-div {
+  margin-top: 10px;
+  overflow-x: scroll;
+  // overflow: hidden;
+}
+
+.arrow-circle-right{
+  background-color: transparent
+}
+
+.leave-order-buttom {
+  margin-right: 10px;
+
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  /* Remove scrollbar space */
+  background: transparent;
+  /* Optional: just make scrollbar invisible */
+}
+
+
+/* Optional: show position indicator in red */
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}

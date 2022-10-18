@@ -1,0 +1,39 @@
+{
+    "catalogId": "09902262-27f3-4b9c-b92d-2a95337d5cb4",
+    "createdAt": "2020-09-10 22:33:10",
+    "externalCode": "10",
+    "index": 0,
+    "name": "Drinks",
+    "status": "active",
+    "id": "98ea6e28-74a5-4b76-96fb-384c775fe819",
+    "template": "DEFAULT",
+    "item": [
+        {
+            "id": "36147003-bb80-404d-8bb0-fd0dc111584c",
+            "createdAt": "2020-09-10 22:33:10",
+            "externalCode": "223",
+            "index": 0,
+            "productId": "706741d2-ec4c-4585-8063-02f92f9b27fe",
+            "price": 12.34,
+            "status": "active"
+        }
+        ,{
+            "id": "509eef1e-e84e-4ffa-a5b8-28bc99bb8b6a",
+            "createdAt": "2020-09-10 22:33:10",
+            "externalCode": "224",
+            "index": 0,
+            "productId": "dc180dae-30c0-41de-a997-d6a14e155226",
+            "price": 6.78,
+            "status": "active"
+        }
+        ,{
+            "id": "7d676b59-73ec-4c13-904a-8acc46b56293",
+            "createdAt": "2020-09-10 22:33:10",
+            "externalCode": "225",
+            "index": 0,
+            "productId": "9ef17d07-04ab-4e31-ba68-f7003bf68d12",
+            "price": 16.78,
+            "status": "active"
+        }
+    ]
+}

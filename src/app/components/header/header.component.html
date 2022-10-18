@@ -1,0 +1,16 @@
+<mat-toolbar [class.mat-elevation-z5]="true" class="noprint" fxLayout="row">
+  <div fxFlex="20">
+    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+  </div>
+  <div fxFlex="60" fxLayoutAlign="center center">
+    <span>{{appshell.onTitleUpdate|async}}</span>
+    <span>
+    </span>
+    <img id="logo" src="assets/imgs/logo.png" /> 
+  </div>
+  <div fxFlex="20">
+    <img id="bag" src="assets/icons/Icon_Regular_Bag.svg">
+  </div>
+</mat-toolbar>

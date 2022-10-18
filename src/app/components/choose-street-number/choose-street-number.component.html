@@ -1,0 +1,30 @@
+<div fxFill class="content" fxLayout="column">
+    <div class="title body1-semibold">
+        Fill in the address number
+    </div>
+    <div class="street-name">{{data.streetName}}<span *ngIf="number">{{', ' + number}}</span></div>
+    <div class="grey-color address-info">{{data.neighborhood + ", " + data.city + " - " + data.state}}
+        <span *ngIf="data.country">{{" - " + data.country}}</span>
+    </div>
+
+    <div class="div-input">
+        <!-- <input type="number" [(ngModel)]="number" placeholder="Number"> -->
+        <!-- <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Favorite food</mat-label>
+            <input matInput placeholder="Ex. Pizza" value="Sushi">
+        </mat-form-field> -->
+        <mat-form-field appearance="fill" floatLabel="always">
+            <input #inputNumber matInput id="stretNumber" name='stretNumber' type="number" [(ngModel)]="number" autofocus class="light-black-color" placeholder="Number">
+        </mat-form-field>
+    </div>
+    <div fxFlex="100" class="search-number">
+        <button class="primary-background-color white-80-color" [disabled]="!number" mat-raised-button (click)="close()">
+            Search Number
+        </button>
+    </div>
+    <div fxFlex="100" class="address-without-number">
+        <button class="primary-color" mat-button (click)="close(true)">
+            Address without number
+        </button>
+    </div>
+</div>

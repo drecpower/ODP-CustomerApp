@@ -1,0 +1,42 @@
+/* tslint:disable */
+import { Catalog } from './catalog';
+import { Coupon } from './coupon';
+import { Customer } from './customer';
+import { CustomerAppEndpoint } from './customer-app-endpoint';
+import { MerchantGroup } from './merchant-group';
+import { OptionGroup } from './option-group';
+import { Order } from './order';
+import { PaymentMethod } from './payment-method';
+export interface Merchant {
+  acceptDeliveryOrder?: boolean;
+  acceptScheduledOrder?: boolean;
+  acceptTableOrder?: boolean;
+  acceptTakeoutOrder?: boolean;
+  catalog?: Array<Catalog>;
+  city?: string;
+  complement?: string;
+  country?: string;
+  coupon?: Array<Coupon>;
+  createdAt?: string;
+  customer?: Array<Customer>;
+  customerAppEndpoint?: Array<CustomerAppEndpoint>;
+  delinetEndpoint?: string;
+  delinetPrivateKey?: string;
+  delinetPublicKey?: string;
+  id?: string;
+  latitude?: number;
+  longitude?: number;
+  merchantGroupId?: string;
+  merchantGroupIdNavigation?: MerchantGroup;
+  name?: string;
+  neighborhood?: string;
+  optionGroup?: Array<OptionGroup>;
+  order?: Array<Order>;
+  paymentMethod?: Array<PaymentMethod>;
+  postalCode?: string;
+  reference?: string;
+  state?: string;
+  status?: string;
+  streetName?: string;
+  streetNumber?: string;
+}

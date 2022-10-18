@@ -1,0 +1,29 @@
+<div class="content">
+  <!-- MAT-TAB -->
+  <mat-tab-group animationDuration="0ms" #tabRef (selectedTabChange)="selectTab(tabRef.selectedIndex)"
+    [selectedIndex]="selectedIndex">
+    <!-- TAB-DELIVERY -->
+    <mat-tab label="{{ deliveryType[0].type }}" [disabled]="selectedSvc.selectedMerchant?.acceptDeliveryOrder!=true" ></mat-tab>
+
+    <!-- TAB-PICKUP-STORE -->
+    <mat-tab label="{{ deliveryType[1].type }}" [disabled]="selectedSvc.selectedMerchant?.acceptTakeoutOrder!=true"></mat-tab>
+  </mat-tab-group>
+
+  <app-cart-choose-address [deliveryType]="cartSvc.orderType" [addressObj]="selectedAddress"
+    [change]="selectedIndex==0" [near]="cartSvc.gpsAddress!=undefined"></app-cart-choose-address>
+  <div [@slowFadeInOutAnimation] *ngIf="selectedIndex==0">
+    <div class="light-grey-border-bottom-color"></div>
+    <app-cart-order-type-delivery-where-to-leave></app-cart-order-type-delivery-where-to-leave>
+  </div>
+
+  <app-cart-choose-time [type]="deliveryType[selectedIndex].value" [time]="deliveryTimeWindow"></app-cart-choose-time>
+
+
+  <!-- <app-cart-order-type-delivery *ngIf="selectedTab==0"></app-cart-order-type-delivery>
+    
+    <app-cart-order-type-take-out *ngIf="selectedTab==1"></app-cart-order-type-take-out> -->
+  <!-- <div class="space-bottom white-color"></div> -->
+  <!-- <div class="space-bottom white-60-background-color"></div> -->
+  <div class="light-grey-border-bottom-color"></div>
+
+</div>

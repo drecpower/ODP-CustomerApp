@@ -1,0 +1,42 @@
+<div class="content" fxLayout="column">
+    <div class="header">
+        <div class="header" fxLayout="row wrap" fxLayoutAlign="center center">
+            <div fxFlex="30" fxLayoutAlign="start center" class="close-icon" >
+                <mat-icon mat-dialog-close class="primary-color primary-color-stroke" (click)="back()" matPrefix [svgIcon]="icons.back">
+                </mat-icon>
+            </div>
+            <div fxFlex="40" class="heading3"></div>
+            <div fxFlex="30"> </div>
+        </div>
+    </div>
+    <div class="map"></div>
+    <div class="merchants">
+        <div class="title body1-bold">Choose where you go pickup your order:</div>
+        <div fxLayout="column">
+            <button class="merchant grey-color mat-elevation-z2" *ngFor="let merchant of lstMerchant"
+                [ngClass]="{
+                'primary-border-color':selectedMerchant==merchant
+            }" fxFlex="100" mat-button (click)="selectMerchant(merchant)">
+                <div fxFlex="10" class="" fxLayoutAlign="center center">
+                    <!-- <mat-icon class="grey-color" matPrefix [svgIcon]="icons.pin"></mat-icon> -->
+                    <mat-icon class="grey-color-stroke" [svgIcon]="icons.pin"></mat-icon>
+                </div>
+                <div fxFlex="90" class="" fxLayout="column" fxLayoutAlign="center start">
+                    <div class="body1-semibold">{{merchant.streetName}} , {{merchant.streetNumber}}</div>
+                    <div class="grey-color">{{merchant.neighborhood}},
+                        {{merchant.city}} - {{merchant.state}} 
+                    </div>
+                    <div class="grey-color">
+                        {{merchant.complement}} <span *ngIf="merchant.reference"> - </span>{{merchant.reference}}
+                    </div>
+                    <div class="grey-color">
+                        {{merchant.postalCode}}
+                    </div>
+                </div>
+            </button>
+        </div>
+    </div>
+    <div class="footer">
+        <button class="primary-background-color white-color confirm" mat-button (click)="confirm()">Confirm pickup location </button>
+    </div>
+</div>

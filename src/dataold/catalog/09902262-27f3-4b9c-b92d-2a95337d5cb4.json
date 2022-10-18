@@ -1,0 +1,28 @@
+{
+    "id": "09902262-27f3-4b9c-b92d-2a95337d5cb4",
+    "merchantId": "55d0e3fb-f932-11eb-b388-000d3a8abda5",
+    "status": "active",
+    "type": "DELIVERY",
+    "category": [
+        {
+            "catalogId": "09902262-27f3-4b9c-b92d-2a95337d5cb4",
+            "createdAt": "2020-09-10 22:33:10",
+            "externalCode": "10",
+            "index": 0,
+            "name": "Drinks",
+            "status": "active",
+            "id": "98ea6e28-74a5-4b76-96fb-384c775fe819",
+            "template": "DEFAULT"
+        },
+        {
+            "catalogId": "09902262-27f3-4b9c-b92d-2a95337d5cb4",
+            "createdAt": "2020-09-10 22:33:10",
+            "externalCode": "10",
+            "index": 0,
+            "name": "Snacks",
+            "status": "active",
+            "id": "ad0b512d-ec28-4cab-b826-4b550bd31ccc",
+            "template": "DEFAULT"
+        }
+    ]
+}

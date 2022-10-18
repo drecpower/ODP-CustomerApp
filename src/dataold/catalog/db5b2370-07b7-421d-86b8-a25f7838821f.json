@@ -1,0 +1,19 @@
+{
+    "id": "db5b2370-07b7-421d-86b8-a25f7838821f",
+    "merchantId": "55d0e3fb-f932-11eb-b388-000d3a8abda5",
+    "status": "ACTIVE",
+    "type": "TAKEOUT",
+    "category": [
+        {
+            "catalogId": "db5b2370-07b7-421d-86b8-a25f7838821f",
+            "createdAt": "2020-09-10 22:33:10",
+            "externalCode": "10",
+            "index": 0,
+            "name": "Drinks",
+            "status": "ACTIVE",
+            "id": "98ea6e28-74a5-4b76-96fb-384c775fe819",
+            "template": "DEFAULT"
+            
+        }
+    ]
+}

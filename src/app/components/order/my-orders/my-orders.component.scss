@@ -1,0 +1,126 @@
+.content {
+    height: 100vh;
+    overflow-y: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.title{
+    text-align: center;
+    padding:10px;
+}
+.history{
+    text-align: left;
+    padding: 10px 10px 0px 0px;
+}
+.orders-in-progress {
+    padding-top: 20px;
+    text-align: center;
+    padding: 10px;
+    overflow-x: scroll;
+}
+.order-in-progress{
+    padding-left: 10px;
+}
+.orders {
+    padding-top: 20px;
+    text-align: center;
+    padding: 10px;
+}
+.order{
+    padding-bottom: 10px;
+}
+.dateTop{
+    padding-top: 10px !important;
+}
+.date{
+    text-align: left;
+    padding: 30px 10px 10px 0px;
+}
+mat-card-header {
+    padding-bottom: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+.merchant-name{
+    text-align: left;
+}
+.mat-card-title{
+    margin-bottom: 0px !important;
+}
+
+.image {
+    height: 30px;
+    width: 30px;
+    background-size: cover;
+}
+
+mat-card-content {
+    padding-top: 10px;
+    cursor: pointer;
+    margin-bottom: 5px !important;
+}
+.status{
+    text-align: left;
+}
+.status>span{
+    vertical-align: sub;
+}
+.check-circle{
+    font-size: 15px;
+}
+.status-description{
+    text-align: left;
+}
+
+.items {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.quantity{
+    text-align: left;
+}
+.quantity-number{
+    padding: 1px 3px;
+    border-radius: 22%;
+}
+.description {
+    padding-left: 10px;
+    text-align: left;
+}
+
+.more {
+    font-weight: bold;
+    text-align: left;
+}
+
+.buttons {
+    padding-top: 7px;
+}
+
+.rate{
+    padding-top: 5px;
+    padding-left: 5px;
+}
+
+.star{
+    font-size: 18px;
+    margin-top: 1px;
+}
+
+
+.div-rate{
+    text-align: left;
+}
+
+.div-star{
+    text-align: right;
+}
+
+.btn-add {
+    width: 100%;
+}
+
+.btn-help {
+    width: 100%;
+}

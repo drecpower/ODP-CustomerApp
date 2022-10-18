@@ -1,0 +1,43 @@
+{
+    "createdAt":"2022-01-01 00:00:00",
+    "id":"b3b40565-d6d6-44a9-8919-fcacfc1eeef4",
+    "merchantId":"55d0e3fb-f932-11eb-b388-000d3a8abda5",
+    "name":"SMALL",
+    "type":"TOPPING",
+    "status":"active",
+    "option":[
+        {
+            "id": "f6015ab5-27c4-41bc-92c6-7af261807e91",
+            "createdAt": "2020-09-10 22:33:10",
+            "externalCode": "2290",
+            "index": 0,
+            "productId": "43c06081-b223-4e76-ac02-4cace6020fbd",
+            "optionGroupId":"d29b70f0-00e2-4264-8d87-d3f1ddbfef7c",
+            "originalPrice":null,
+            "price": 15.34,
+            "status": "active"
+        },
+        {
+            "id": "fb8b7bee-08dc-4e39-b2b7-57c31138c25f",
+            "createdAt": "2020-09-10 22:33:10",
+            "externalCode": "2291",
+            "index": 0,
+            "productId": "3e12805d-39d6-4dc5-96db-1ebc7d3e42f2",
+            "optionGroupId":"d29b70f0-00e2-4264-8d87-d3f1ddbfef7c",
+            "originalPrice":null,
+            "price": 25.34,
+            "status": "active"
+        },
+        {
+            "id": "69f5bbfc-7d5b-4c34-8817-ebe6a9902557",
+            "createdAt": "2020-09-10 22:33:10",
+            "externalCode": "2292",
+            "index": 0,
+            "productId": "a08b8fa1-4d75-45c3-9fc6-d56f90106d79",
+            "optionGroupId":"d29b70f0-00e2-4264-8d87-d3f1ddbfef7c",
+            "originalPrice":null,
+            "price": 15.34,
+            "status": "active"
+        }        
+        ]
+  }

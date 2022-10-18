@@ -1,0 +1,189 @@
+$primary: red;//#6296a6; //#fc9127;
+$success: #50a773;
+$warning: #ffa124;
+$error: #ee4c58;
+$darker: #fa7424;
+$extra-light-grey: #f4f4f4;//#dcdcdc
+$light-grey: #dcdcdc;
+$grey: #a6a5a5;
+$dark-grey: #7a7a7a;//#929090;
+$white: #fefefe;
+$white-60: #f2f2f2;
+$white-80: #fcfcfc;
+$black: #000000;
+$light-black-color: #332927;
+$green: green;
+$white-opacity:#ffffffbb;
+
+$disabled-icon-color: $grey;
+// $disabled-button-text-color:$grey;
+// $disabled-button-background-color:$light-grey;
+
+
+
+// Put in whatever color here, the generator will use it as the 500 value of the palette!
+$testColor: pink;
+
+@function tetrad($c) {
+  $hue: hue($c);
+  $saturation: saturation($c);
+  $lightness: lightness($c);
+  $tetrad: [ hsl($hue, $saturation, $lightness), hsl($hue + 90 % 360, $saturation, $lightness),
+    hsl($hue + 180 % 360, $saturation, $lightness), hsl($hue + 270 % 360, $saturation, $lightness), ];
+  @return $tetrad;
+}
+@function multiply($fore, $back) {
+  $red: red($back) * red($fore) / 255;
+  $green: green($back) * green($fore) / 255;
+  $blue: blue($back) * blue($fore) / 255;
+  @return rgb($red, $green, $blue);
+}
+@function makeColorPalette($c) {
+  $light: #fff;
+  $dark: multiply($c, $c);
+  $tetrad: tetrad($c);
+  $palette: (
+    50: mix($light, $c, 88%),
+    100: mix($light, $c, 70%),
+    200: mix($light, $c, 50%),
+    300: mix($light, $c, 30%),
+    400: mix($light, $c, 15%),
+    500: mix($light, $c, 0%),
+    600: mix($dark, $c, 13%),
+    700: mix($dark, $c, 30%),
+    800: mix($dark, $c, 46%),
+    900: mix($dark, $c, 75%),
+    A100: lighten(saturate(mix($dark, $c, 15%), 80%), 45.6%),
+    A200: lighten(saturate(mix($dark, $c, 15%), 80%), 35.6%),
+    A400: lighten(saturate(mix($dark, $c, 15%), 100%), 25.6%),
+    A700: lighten(saturate(mix($dark, $c, 15%), 100%), 20.5%),
+    contrast: (
+      50: white,
+      100: white,
+      200: white,
+      300: white,
+      400: white,
+      500: white,
+      600: white,
+      700: white,
+      800: white,
+      900: white,
+      A100: white,
+      A200: white,
+      A400: white,
+      A700: white,
+    ),
+  );
+  @return $palette;
+}
+$newPallet :makeColorPalette($primary);
+// @each $shade, $c in makeColorPalette($primary) {
+//   .primary-#{$shade} {
+//     background-color: $c;
+//     animation-name: primary#{$shade};
+//     &:after {
+//       content: "#{$c}";
+//     }
+//   }
+//   @keyframes primary#{$shade} {
+//     0% {
+//       background: $primary;
+//     }
+//     100% {
+//       background: $c;
+//     }
+//   }
+// }
+
+// @import url("https://fonts.googleapis.com/css?family=Inconsolata");
+// .palette {
+//   display: grid;
+//   writing-mode: vertical-lr;
+//   grid-template-rows: repeat(14, 1fr);
+//   width: 100vw;
+//   div {
+//     display: inline-block;
+//     border: none;
+//     box-sizing: border-box;
+//     height: 100vh;
+//     padding: 1vw;
+//     overflow: hidden;
+//     animation-duration: 1s;
+//     animation-delay: 0.5s;
+//     background: $primary;
+//     animation-fill-mode: forwards;
+//     font-size: 2vw;
+//     font-family: Inconsolata, monospace;
+//     @for $i from 1 to 15 {
+//       &:nth-child(#{$i}) {
+//         animation-delay: $i * 0.05s;
+//       }
+//     }
+//     &:before,
+//     &:after {
+//       opacity: 0;
+//       animation: fadeIn 1s 0.5s ease forwards;
+//     }
+//     &:before {
+//       content: attr(class);
+//     }
+//     &:after {
+//       float: right;
+//     }
+//   }
+// }
+// @keyframes fadeIn {
+//   0% {
+//     opacity: 0;
+//   }
+//   100% {
+//     opacity: 1;
+//   }
+// }
+
+// TODO: Label text should know if it should be black or white based on the background color darkness.
+// TODO: Lighter colors (#bee4e1) can return white values for A-level tints. Should be slightly smarter than this.
+$customPrimary: (
+  50: #fed1a5,
+  100: #fdc48c,
+  200: #fdb772,
+  300: #fdab59,
+  400: #fc9e40,
+  500: #fc9127,
+  600: #fc840e,
+  700: #ed7703,
+  800: #d46b03,
+  900: #ba5e03,
+  A100: #fedebe,
+  A200: #feebd7,
+  A400: #fff7f0,
+  A700: #a15102,
+  contrast: (
+    50: white,
+    100: white,
+    200: white,
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: white,
+    A200: white,
+    A400: white,
+    A700: white,
+  ),
+);
+
+$my-primary: mat.define-palette($newPallet, 500);
+$my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+$my-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+    ),
+  )
+);

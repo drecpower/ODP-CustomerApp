@@ -1,0 +1,29 @@
+<div fxFill class="content" fxLayout="column" fxLayout="row wrap" fxLayoutAlign="center center">
+    <div fxFlex="100" class="heading2-regular">
+        <span hidden>Home</span>
+        <span>{{data.streetName + ", " + data.streetNumber}}</span>
+    </div>
+    <div fxFlex="100" class="grey-color">
+        <span hidden>{{data.streetName + ", " + data.neighborhood + ", " + data.city + " - " + data.state}}</span>
+        <span>{{data.neighborhood + ", " + data.city + " - " + data.state}}</span>
+    </div>
+    <div fxFlex="100" fxLayout="column" class="div-buttons">
+        <div fxFlex="100" fxLayout="row">
+            <div fxFlex="50" class="div-btn">
+                <button class="btn grey-border-color" mat-button (click)="close('DELETE')">
+                    <mat-icon class="grey-color">av_timer</mat-icon>
+                    Delete
+                </button>
+            </div>
+            <div fxFlex="50" class="div-btn"> 
+                <button class="btn grey-border-color" mat-button (click)="close('EDIT')">
+                    <mat-icon class="grey-color">edit</mat-icon>
+                    Edit
+                </button>
+            </div>
+        </div>
+        <div fxFlex="100">
+            <button class="btn primary-color body1-semibold" mat-button (click)="close('CANCEL')">Cancel</button>
+        </div>
+    </div>
+</div>

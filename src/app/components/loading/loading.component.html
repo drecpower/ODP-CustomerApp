@@ -1,0 +1,9 @@
+<div class="content" *ngIf="!ready" [@longFadeInOutAnimation] fxLayoutAlign="center center">
+    <div *ngIf="loading" fxFlex="100" fxLayout="column" fxLayoutAlign="center center">
+        <div class="loading-text"> {{loadingText}}</div>
+        <mat-progress-bar mode="buffer"></mat-progress-bar>
+    </div>
+    <div *ngIf="!loading"  class="primary-color body1-bold" fxFlex="100" fxLayout="column" (click)="get()">
+        <div class="loading-retry pointer">{{retryText}}</div>
+    </div>
+</div>      

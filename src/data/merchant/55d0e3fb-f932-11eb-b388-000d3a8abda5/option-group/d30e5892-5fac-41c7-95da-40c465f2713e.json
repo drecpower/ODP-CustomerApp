@@ -1,0 +1,32 @@
+{
+    "createdAt":"2022-01-01 00:00:00",
+    "id":"d30e5892-5fac-41c7-95da-40c465f2713e",
+    "merchantId":"55d0e3fb-f932-11eb-b388-000d3a8abda5",
+    "name":"Crust",
+    "type":"CRUST",
+    "status":"active",
+    "option":[
+        {
+            "id": "9371fb54-678e-42d3-b948-eb9c3def6a65",
+            "createdAt": "2020-09-10 22:33:10",
+            "externalCode": "2294",
+            "index": 0,
+            "productId": "70521499-8724-4fb3-8365-84ad94b3fc23",
+            "optionGroupId":"d29b70f0-00e2-4264-8d87-d3f1ddbfef7c",
+            "price": 0,
+            "originalPrice":null,
+            "status": "active"
+        }, 
+        {
+            "id": "7a5cbc06-f85c-47fa-85cf-8d4f63835d67",
+            "createdAt": "2020-09-10 22:33:10",
+            "externalCode": "2295",
+            "index": 0,
+            "productId": "422c14c7-24d9-4aa9-82ec-d3ca4fb2e5bc",
+            "optionGroupId":"d29b70f0-00e2-4264-8d87-d3f1ddbfef7c",
+            "price": 2.99,
+            "originalPrice":null,
+            "status": "active"
+        }
+        ]
+  }

@@ -1,0 +1,99 @@
+.content{
+    padding: 0px 15px 0px 15px;
+}
+.div-padding {
+    padding: 0px 15px 0px 15px;
+}
+
+.div-padding-all {
+    padding: 15px;
+}
+
+.height {
+    height: 20px;
+}
+
+.line {
+    height: 1px;
+}
+
+.m-t-6 {
+    margin-top: 6px;
+}
+
+.m-t-10 {
+    margin-top: 10px;
+}
+
+.m-t-15 {
+    margin-top: 15x;
+}
+
+.m-t-20 {
+    margin-top: 20px;
+}
+
+.img {
+    width: 40px;
+    height: 40px;
+}
+
+.width-40 {
+    width: 40px;
+}
+
+.m-r-10 {
+    margin-right: 10px;
+}
+
+.leave-order-div {
+    margin-top: 10px;
+    overflow-x: scroll;
+    // overflow: hidden;
+}
+
+.leave-order-buttom {
+    min-width: 210px;
+    margin-right: 10px;
+    text-align: center;
+    display: inline-block;
+    white-space: nowrap;
+    border-radius: 5px;
+}
+
+.time-window-div {
+    // margin-top: 10px;
+    overflow-x: scroll;
+}
+
+.time-order-buttom {
+    min-width: 210px;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    /* Remove scrollbar space */
+    background: transparent;
+    /* Optional: just make scrollbar invisible */
+}
+
+
+/* Optional: show position indicator in red */
+
+::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+.space-bottom {
+    height: 10px;
+}
+
+.m-t-56 {
+    margin-top: 56px;
+}
+
+.f-s-35 {
+    font-size: 35px;
+}

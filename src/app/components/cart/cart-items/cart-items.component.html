@@ -1,0 +1,44 @@
+<div class="content" fxLayout="column">
+    <div *ngFor="let cat of categorizedItems!">
+        <div class="body2-bold">{{cat.categoryName}}</div>
+        <div *ngFor="let dci of cat.items;index as i" class="item light-grey-border-bottom-color" fxLayout="row"
+            routerLink="/cart/{{dci.item.id}}/{{i}}/{{cat.template ? cat.template : 'templat'}}/{{cat.categoryId}}">
+            <div fxFlex="80" fxLayout="column">
+                <div class="body2">{{dci.quantity + 'x '}} 
+                    <span *ngIf="!dci.name">{{dci.item.productIdNavigation?.name}}</span>
+                    <span *ngIf="dci.name">{{dci.name}}</span>
+                </div>
+
+                <div class="body2 grey-color">{{dci.comments}}</div>
+                <div class="body2 grey-color" *ngFor="let op of dci.options">
+                    <div fxLayout="row wrap">
+                        <div class="quantity white-60-background-color">
+                            <span>{{op.Quantity}}</span>
+                        </div>
+                        <span *ngIf="dci.fractions && dci.fractions! > 1 && op.Type == 'FLAVOR'">
+                            {{"1/" + dci.fractions }} &nbsp;
+                        </span>
+                        {{op.Name}}
+                    </div>
+                </div>
+                <div class="body2-bold">{{ dci.subtotal | currency}}</div>
+            </div>
+            <div fxFlex="20" fxLayoutAlign="end center">
+                <div class="image">
+                    <img class="img-item"
+                        *ngIf="dci.item!.productIdNavigation != undefined && dci.item.productIdNavigation.image"
+                        [src]="manifestSvc.ipfsgatewayUri+dci.item!.productIdNavigation!.image" />
+                    <img class="img-item"
+                        *ngIf="!(dci.item!.productIdNavigation != undefined && dci.item.productIdNavigation.image)"
+                        src="assets/imgs/fallback.png" />
+                    <div class="body3-bold counter white-80-color body5 primary-background-color" fxLayoutAlign="center center">
+                        <div class="counter-number">{{dci.quantity}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="add-more" fxLayoutAlign="center center">
+        <button mat-button class="primary-color primary-border-color" (click)="addMore()">Add more items</button>
+    </div>
+</div>

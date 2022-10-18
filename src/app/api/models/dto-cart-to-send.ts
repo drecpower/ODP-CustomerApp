@@ -1,0 +1,41 @@
+/* tslint:disable */
+import { Address } from './address';
+import { DtoCartCoupon } from './dto-cart-coupon';
+import { Customer } from './customer';
+import { DtoCustomerCard } from './dto-customer-card';
+import { DtoCartDeliveryTimeWindow } from './dto-cart-delivery-time-window';
+import { DtoCartItem } from './dto-cart-item';
+import { DtoCartPayment } from './dto-cart-payment';
+export interface DtoCartToSend {
+  additionalFees?: number;
+  address?: Address;
+  benefits?: number;
+  coupon?: DtoCartCoupon;
+  customer?: Customer;
+  customerCard?: DtoCustomerCard;
+  deliveryBy?: string;
+  deliveryDateTime?: string;
+  deliveryFee?: number;
+  deliveryTimeWindow?: DtoCartDeliveryTimeWindow;
+  discount?: number;
+  discountDeliveryFee?: number;
+  displayId?:string;
+  externalId?: string;
+  id?: string;
+  isTest?: boolean;
+  items?: Array<DtoCartItem>;
+  merchantGroupId?: string;
+  merchantId?: string;
+  observations?: string;
+  orderMode?: string;
+  orderTiming?: string;
+  orderType?: string;
+  payment?: DtoCartPayment;
+  postBackUrl?: string;
+  salesChannel?: string;
+  subtotal?: number;
+  subtotalDeliveryFee?: number;
+  table?: string;
+  total?: number;
+  whereToLeave?: string;
+}

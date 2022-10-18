@@ -1,0 +1,26 @@
+<div class="m-t-20 m-b-20" fxLayout="row" (click)="changeAddress()">
+  <div fxFlex="90" fxLayout="row">
+    <div fxLayoutAlign="center center" class="black-border-color type-icon">
+      <mat-icon class="primary-color-stroke" *ngIf="deliveryType=='DELIVERY'" matPrefix [svgIcon]="icons.pin"></mat-icon>
+      <mat-icon class="primary-color" *ngIf="deliveryType!='DELIVERY'">directions_walk</mat-icon>
+    </div>
+    <div fxLayout="column">
+      <div class="body2 dark-grey-color div-padding">
+        <span *ngIf="deliveryType=='DELIVERY'">Deliver in</span>
+        <span *ngIf="deliveryType!='DELIVERY'">Take out in</span>
+      </div>
+      <div class="body2-semibold light-black-color div-padding">
+        <span *ngIf="near" class="body2-bold">Near </span>
+        {{ addressObj?.streetName }}, {{ addressObj?.streetNumber }} - {{ addressObj?.neighborhood }}
+      </div>
+      <div class="body2 dark-grey-color div-padding">
+        {{ addressObj?.city }} / {{ addressObj?.state }}
+      </div>
+    </div>
+  </div>
+  <div fxFlex="10" *ngIf="change || multiMerchantTakeout" class="div-padding body2-semibold primary-color cursor-pointer"
+     fxLayoutAlign="end center">
+    <mat-icon >keyboard_arrow_right</mat-icon>
+  </div>
+  <div fxFlex="10" *ngIf="!change"></div>
+</div>

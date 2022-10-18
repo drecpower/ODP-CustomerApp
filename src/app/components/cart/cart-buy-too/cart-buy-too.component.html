@@ -1,0 +1,19 @@
+<div class="content white-60-background-color" *ngIf="recommendations.length">
+    <div class="heading3 title">Buy too</div>
+    <div fxLayout="row">
+        <mat-card *ngFor="let rec of recommendations" fxLayout="column" routerLink="/cart/{{rec.id}}">
+            <div class="image">
+                <img class="img-item" *ngIf="rec.productIdNavigation != undefined && rec.productIdNavigation.image" [src]="rec.productIdNavigation!.image" />
+                <img class="img-item" *ngIf="!(rec.productIdNavigation != undefined && rec.productIdNavigation.image)" src="assets/imgs/fallback.png" /> 
+                    <div class="badge white-80-color body5 white-background-color" fxLayoutAlign="center center">
+                    <div class="badge-icon">
+                        <mat-icon class="primary-color primary-color-stroke font-size-11" matPrefix [svgIcon]="icons.plussmall">
+                        </mat-icon>
+                    </div>
+                </div>
+            </div>
+            <div>{{rec.productIdNavigation?.name}}</div>
+            <div class="price">{{rec.price|currency}}</div>
+        </mat-card>
+    </div>
+</div>

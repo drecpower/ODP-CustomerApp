@@ -1,0 +1,25 @@
+<div class="content pointer" (click)="AddCoupon()">
+    <div fxLayout="row" class="content-internal">
+        <div fxFlex="10" fxLayoutAlign="center center">
+            <span class="material-icons-outlined f-s-38 grey-color"
+                [ngClass]="{'primary-color':coupon,'grey-color':!(coupon)}">confirmation_number</span>
+        </div>
+        <div class="text" fxFlex fxLayoutAlign="start center" fxLayout="row">
+            <div *ngIf="!(coupon)">
+                <div>Coupons </div>
+                <div class="dark-grey-color" *ngIf="couponSvc.couponsAvailables && couponSvc.couponsAvailables!.length>0">{{couponSvc.couponsAvailables!.length}} coupons available in this store </div>
+            </div>
+            <div *ngIf="coupon" class="">
+                <div class="light-black-color">
+                    <span *ngIf="coupon.value"> {{coupon!.value|currency}}</span>
+                    <span *ngIf="coupon.percentage"> {{coupon!.percentage}} %</span>
+                    <span *ngIf="coupon.minimum && coupon!.minimum>0"> for orders over {{coupon!.minimum}}</span>
+                </div>
+                <div class="dark-grey-color">Coupon applied ! </div>
+            </div>
+        </div>
+        <div fxFlex="10" class="primary-color" fxLayoutAlign="end center">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+        </div>
+    </div>
+</div>

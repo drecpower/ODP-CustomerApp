@@ -1,0 +1,40 @@
+/* tslint:disable */
+import { Address } from './address';
+import { Coupon } from './coupon';
+import { Customer } from './customer';
+import { Merchant } from './merchant';
+import { OrderEvent } from './order-event';
+import { OrderItem } from './order-item';
+export interface Order {
+  additionalFees?: number;
+  addressId?: string;
+  addressIdNavigation?: Address;
+  benefits?: number;
+  couponId?: string;
+  couponIdNavigation?: Coupon;
+  createdAt?: string;
+  customerId?: string;
+  customerIdNavigation?: Customer;
+  deliveryBy?: string;
+  deliveryDateTime?: string;
+  deliveryFee?: number;
+  displayId?: string;
+  externalId?: string;
+  id?: string;
+  isTest?: boolean;
+  merchantId?: string;
+  merchantIdNavigation?: Merchant;
+  modifiedAt?: string;
+  observations?: string;
+  orderEvent?: Array<OrderEvent>;
+  orderItem?: Array<OrderItem>;
+  orderMode?: string;
+  orderTiming?: string;
+  orderType?: string;
+  postBackUrl?: string;
+  preparationStartDateTime?: string;
+  salesChannel?: string;
+  status?: string;
+  subTotal?: number;
+  table?: string;
+}

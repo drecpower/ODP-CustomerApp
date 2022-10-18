@@ -1,0 +1,49 @@
+<div fxLayout="column" class="content">
+    <div *ngFor="let p of paymentSvc.paymentsOnline" [mat-dialog-close]=p (click)="cartSvc.selectPayment(p)"
+        class="item-content pointer" fxLayout="row" fxLayoutAlign="center center" [ngClass]="{
+        'primary-border-color': cartSvc.payment &&  cartSvc.payment.gateway! == p.gateway!,
+        'light-grey-border-color':cartSvc.payment?.gateway != p.gateway
+      }">
+        <div fxFlex="20">
+            <mat-icon class="primary-color primary-color-stroke" matPrefix>credit_card</mat-icon>
+        </div>
+        <div fxFlex fxLayout="column" fxLayoutAlign="start start">
+            <div class="body2">
+                {{p.displayName}}
+            </div>
+        </div> 
+    </div>
+    <div *ngIf="paymentSvc.onlineMethod">
+        <div *ngFor="let c of customerCardSvc.cards" [mat-dialog-close]=c (click)="selectCustomerCard(c)"
+            class="item-content pointer" fxLayout="row" fxLayoutAlign="center center" [ngClass]="{
+        'primary-border-color': cartSvc.customerCard == c,
+        'light-grey-border-color':cartSvc.customerCard != c
+      }">
+            <div fxFlex="20">
+                <mat-icon class="primary-color primary-color-stroke" matPrefix>credit_card</mat-icon>
+            </div>
+            <div fxFlex fxLayout="column" fxLayoutAlign="start start">
+                <div class="body2">
+                    <span *ngIf="c.nickname">{{c.nickname}}</span>
+                    <span *ngIf="!c.nickname">{{c.brand}}</span>
+                     - {{c.method}}</div>
+                <div class="body2 item-spacing">
+                    {{c.number}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="paymentSvc.onlineMethod" class="footer" fxLayoutAlign="center center">
+        <div (click)="addNewCard()" class="footer-content primary-background-color mat-elevation-z2"
+            fxLayoutAlign="center center">
+            <div fxFlex="30">
+            </div>
+            <div class="body1-semibold white-color" fxFlex fxLayoutAlign="center center">
+                Add New Card
+            </div>
+            <div fxFlex="30">
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="content">
+    <div class="title heading2-regular">
+        How do you want to receive the order?
+    </div>
+    <mat-radio-group [(ngModel)]="selected" name="orderType">
+        <button mat-button class="btn option" [ngClass]="{'block': !acceptDelivery }"
+            (click)="validate(OrderType.DELIVERY)">
+            <div fxFlex="20" fxLayoutAlign="center center">
+                <mat-icon>motorcycle</mat-icon>
+            </div>
+            <div fxFlex="60" fxLayoutAlign="start center">
+                Delivery
+            </div>
+            <div fxFlex="20" fxLayoutAlign="end center">
+                <mat-radio-button [value]="OrderType.DELIVERY" [disabled]="!acceptDelivery"></mat-radio-button>
+            </div>
+        </button>
+        <button mat-button class="btn option" [ngClass]="{'block': !acceptTakeout }"
+            (click)="validate(OrderType.TAKEOUT)">
+
+            <div fxFlex="20" fxLayoutAlign="center center">
+                <mat-icon> directions_walk</mat-icon>
+            </div>
+            <div fxFlex="60" fxLayoutAlign="start center">
+                Takeout
+            </div>
+            <div fxFlex="20" fxLayoutAlign="end center">
+                <mat-radio-button [value]="OrderType.TAKEOUT" [disabled]="!acceptTakeout" (click)="validate()">
+                </mat-radio-button>
+            </div>
+        </button>
+        <div class="button" (click)="confirm()">
+            <button mat-raised-button class="body1-semibold" color="primary">Confirm
+                {{capitalizeFirstLetter(this.selected?.toLowerCase())}}</button>
+        </div>
+    </mat-radio-group>
+</div>

@@ -1,0 +1,12 @@
+<div fxFill>
+    <app-cart [tab]="id"></app-cart>
+</div> 
+<div fxFill.xs [@slideInOutAnimation] *ngIf="id  && !cartModal && template!='PIZZA'" class="modal-top item-detail" fxLayoutAlign.gt-sm="center center">
+    <app-catalog-item-detail [id]="id" [index]="index" fxFlex.gt-sm="90"></app-catalog-item-detail>
+</div>
+<div fxFill.xs [@slideInOutAnimation] *ngIf="id  && !cartModal && template=='PIZZA'" class="modal-top item-detail" fxLayoutAlign.gt-sm="center center">
+    <app-catalog-pizza-detail [pizza]="pizza!" [index]="index" fxFlex.gt-sm="90"></app-catalog-pizza-detail>
+</div>
+<div fxFill.xs [@slideInOutAnimation] *ngIf="cartSvc.sendingOrder" class="modal-top" fxLayoutAlign.gt-sm="center center">
+    <app-cart-send-splash></app-cart-send-splash>
+</div>

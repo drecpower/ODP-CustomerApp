@@ -1,0 +1,42 @@
+{
+    "createdAt": "2022-01-01 00:00:00",
+    "id": "16a6dcd1-1be7-40fe-b9e2-dd9f79e31b58",
+    "merchantId": "55d0e3fb-f932-11eb-b388-000d3a8abda5",
+    "name": "Choose your drink",
+    "status": "active",
+    "option": [
+      {
+        "createdAt": "2022-01-01 00:00:00",
+        "externalCode": "",
+        "id": "a4ec17f6-f429-4fca-9ed1-ad9a5cde1efd",
+        "index": "0",
+        "optionGroupId": "16a6dcd1-1be7-40fe-b9e2-dd9f79e31b58",
+        "originalPrice": null,
+        "price": 5,
+        "productId": "706741d2-ec4c-4585-8063-02f92f9b27fe",
+        "status": "active"
+      },
+      {
+        "createdAt": "2022-01-01 00:00:00",
+        "externalCode": "",
+        "id": "1228b82d-dd48-45ac-8965-72d952f26848",
+        "index": "0",
+        "optionGroupId": "16a6dcd1-1be7-40fe-b9e2-dd9f79e31b58",
+        "originalPrice": null,
+        "price": 5,
+        "productId": "dc180dae-30c0-41de-a997-d6a14e155226",
+        "status": "active"
+      },
+      {
+        "createdAt": "2022-01-01 00:00:00",
+        "externalCode": "",
+        "id": "d88313ef-cff1-4b40-8b62-151607de8788",
+        "index": "0",
+        "optionGroupId": "16a6dcd1-1be7-40fe-b9e2-dd9f79e31b58",
+        "originalPrice": null,
+        "price": 5,
+        "productId": "9ef17d07-04ab-4e31-ba68-f7003bf68d12",
+        "status": "active"
+      }
+    ]
+  }

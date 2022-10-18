@@ -1,0 +1,50 @@
+<div class="content" fxLayout="column">
+    <!-- <div class="space-top white-60-background-color"></div> -->
+    <div class="body1-semibold dark-grey-color title">Summary of values</div>
+    <div fxLayout="row" class="item">
+        <div class="body2-semibold dark-grey-color" fxFlex="70">
+            Subtotal
+        </div>
+        <div class="body2-semibold dark-grey-color " fxFlex="30" fxLayoutAlign="end center">
+            {{cartSvc.subtotal|currency }}
+        </div>
+    </div>
+    <div fxLayout="row" class="item">
+        <div class="body2 grey-color" fxFlex="70">
+            Delivery Fee
+        </div>
+        <div *ngIf="cartSvc.deliveryFee==0" class="body2 grey-color" fxFlex="30" fxLayoutAlign="end center">
+            Free
+        </div>
+        <div *ngIf="cartSvc.deliveryFee && cartSvc.deliveryFee!>0" class="body2 grey-color" fxFlex="30"
+            fxLayoutAlign="end center">
+            {{cartSvc.deliveryFee |currency}}
+        </div>
+    </div>
+    <div fxLayout="row" class="item" *ngIf="cartSvc.discountDeliveryFee && cartSvc.discountDeliveryFee!>0">
+        <div class="body2 grey-color" fxFlex="70">
+            Discount Fee
+        </div>
+        <div class="body2 grey-color" fxFlex="30" fxLayoutAlign="end center">
+            {{cartSvc.discountDeliveryFee |currency}}
+        </div>
+    </div>
+    <div *ngIf="cartSvc.discount" fxLayout="row" class="item">
+        <div class="body2 grey-color" fxFlex="70">
+            Discount
+        </div>
+        <div class="body2 green-color" fxFlex="30" fxLayoutAlign="end center" (click)="addCupom()">
+            {{cartSvc.discount |currency}}
+        </div>
+    </div>
+    <div fxLayout="row" class="item">
+        <div class="body2-semibold light-black-color" fxFlex="70">
+            Total
+        </div>
+        <div class="body2-semibold light-black-color" fxFlex="30" fxLayoutAlign="end center">
+            {{cartSvc.total |currency}}
+        </div>
+    </div>
+    <!-- <div class="space-bottom white-color"></div>
+    <div class="space-bottom white-60-background-color"></div> -->
+</div>

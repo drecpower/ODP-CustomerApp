@@ -1,0 +1,18 @@
+<div fxLayout="row wrap" class="content">
+    <div class="light-grey-border-color card-pizza" fxFlex="100">
+        <div fxFlex.gt-xs="50" fxFlex.xs="70" fxLayout="column" class="div-text-pizza">
+            <div class="body1">{{pizza.name}}</div>
+            <div fxFlex></div>
+            <div class="price" fxLayout="row wrap">
+                <div *ngIf="selectedSvc.isReadyToSell && pizza.minimalValue" class="body1">
+                    from {{pizza.minimalValue|currency}}
+                </div>
+                <app-loading [ready]="selectedSvc.isReadyToSell" [loading]="true" loadingText="loading news ..."></app-loading>
+            </div>
+        </div>
+        <div fxFlex.gt-xs="50" fxFlex.xs="30" fxLayoutAlign="end start">
+            <div class="div-image-pizza">
+            </div>
+        </div>
+    </div>
+</div>

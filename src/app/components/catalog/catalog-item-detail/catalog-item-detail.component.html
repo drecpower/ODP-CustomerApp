@@ -1,0 +1,104 @@
+<div class="content white-background-color" fxLayout="row wrap" fxLayout.lt-md="column">
+    <div *ngIf="!ready" fxLayoutAlign="center center">
+        <div *ngIf="loading" fxFlex="100" fxLayout="column">
+            <div class="loading-text"> loading product...</div>
+            <mat-progress-bar mode="buffer"></mat-progress-bar>
+        </div>
+        <div *ngIf="!loading" fxFlex="100" fxLayout="column" (click)="get()">
+            <div class="loading pointer">Can't load data try again?</div>
+        </div>
+    </div>
+    <div *ngIf="ready" fxFlex.gt-sm="50" fxFlex.xs="100" fxFlex.lt-md="100">
+        <div class="header light-grey-border-bottom-color" fxLayout="row wrap">
+            <div fxFlex="30"></div>
+            <div fxFlex="40" class="heading3">Details</div>
+            <div fxFlex="30" class="close-icon" fxLayoutAlign="end start">
+                <mat-icon fxHide.gt-sm class="primary-color primary-color-stroke pointer" (click)="close()"
+                    [svgIcon]="icons.closesmall"></mat-icon>
+            </div>
+        </div>
+        <div class="image" fxLayout="center center"
+            [ngStyle]="{'background-image':'url(' + (item.productIdNavigation?.image? (manifestSvc.ipfsgatewayUri + item.productIdNavigation?.image):'assets/imgs/fallback.png') + ')'}">
+        </div>
+    </div>
+    <div *ngIf="ready" fxFlex.gt-sm="50" fxFlex.lt-md="100" fxLayout="column">
+        <div class="title" fxLayout="row wrap">
+            <div fxFlex.gt-sm="70" fxFlex.lt-md="100" class="heading3 title">
+                {{item.productIdNavigation?.name}}
+            </div>
+            <div fxFlex="30" fxHide.lt-md class="close-icon" fxLayoutAlign="end start">
+                <mat-icon class="primary-color  primary-color-stroke" (click)="close()" [svgIcon]="icons.closesmall">
+                </mat-icon>
+            </div>
+        </div>
+        <div class="content-details" fxLayout="column">
+            <div class="item-content" fxFlex="100">
+                <div class="body2 dark-grey-color">
+                    {{item.productIdNavigation?.description}}
+                </div>
+                <div *ngIf="selectedSvc.isReadyToSell &&  item.originalPrice" class="prices">
+                    <span class="body1 success-color">{{item.price|currency}}</span>
+                    <span class="body4-overline dark-grey-color">{{item.originalPrice|currency}}</span>
+                </div>
+                <div *ngIf="selectedSvc.isReadyToSell && !item.originalPrice" class="body1">
+                    {{item.price|currency}}
+                </div>
+                <div *ngIf="!selectedSvc.isReadyToSell" class="loading-text"> loading news...</div>
+                <mat-progress-bar *ngIf="!selectedSvc.isReadyToSell" mode="buffer"></mat-progress-bar>
+            </div>
+            <div *ngIf="item.productIdNavigation?.optionGroupProduct && optionsReady" fxLayout="column">
+                <app-catalog-item-option-group
+                    *ngFor="let ogp of item.productIdNavigation?.optionGroupProduct;index as i" [ogp]="ogp"
+                    (updatedOption)="updatedOption($event)"
+                    [selectedOptions]=" options[i] ? options[i].options:undefined">
+
+                </app-catalog-item-option-group>
+            </div>
+            <div fxFlex="100" class="comments">
+                <div class="body1-semibold grey-color"> Comments</div>
+                <div class="comments-text-area"> </div>
+                <textarea class="grey-color comments-input" [(ngModel)]="comments" placeholder="Ex: take the onion, mayonnaise aside, etc." ></textarea>
+            </div>
+            <div fxHide.gt-xs fxFlex="100" class="height-end"></div>
+        </div>
+        <div class="light-grey-border-bottom-color" fxFlex></div>
+        <div class="before-footer" fxFlex="100" fxLayoutAlign="center center">
+            <div class="footer white-background-color" fxFlex="100" fxLayout="row">
+                <div *ngIf="selectedSvc.isReadyToSell" class="footer-content" fxFlex="100">
+                    <div fxFlex.gt-sm="20" fxFlex.lt-md="50" fxLayoutAlign="end end">
+                        <div class="quantity" fxLayout="row" fxLayoutAlign="center center">
+                            <div class="n-p" (click)="remove()">
+                                <mat-icon *ngIf="quantity > 1" class="primary-color icon-minus" [svgIcon]="icons.minus">
+                                </mat-icon>
+                                <mat-icon *ngIf="!(quantity>1)" class="icon-disabled icon-minus"
+                                    [svgIcon]="icons.minus"></mat-icon>
+                            </div>
+                            <div class="n-p">
+                                <input class="heading3 input-quantity" [(ngModel)]="quantity" />
+                            </div>
+                            <div class="n-p" (click)="add()">
+                                <mat-icon class="primary-color icon-plus font-size-11" [svgIcon]="icons.plus">
+                                </mat-icon>
+                            </div>
+                        </div>
+                    </div>
+                    <div fxFlex.gt-sm="80" fxFlex.lt-md="50" class="div-button-add">
+                        <button fxFlex="100" class="button-add" (click)="addItem()" mat-button
+                            [ngClass]="{'button-primary-color':canContinue,'button-disabled':!canContinue}">
+                            <span *ngIf="index==undefined && quantity>0">Add </span>
+                            <span *ngIf="index!=undefined && quantity==0">Remove </span>
+                            <span *ngIf="index!=undefined && quantity>0">Update </span>
+                            <span *ngIf="!(index!=undefined && quantity==0)">{{ (item.price! - 0 + this.optionsPrice) *
+                                quantity|currency}}</span>
+                        </button>
+                    </div>
+                </div>
+                <div *ngIf="!selectedSvc.isReadyToSell" fxFlex="100" fxLayout="column" fxLayout="center center">
+                    <div class="loading-text"> loading news...</div>
+                    <mat-progress-bar mode="buffer"></mat-progress-bar>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

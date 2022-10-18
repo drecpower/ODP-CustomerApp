@@ -1,0 +1,50 @@
+<div class="m-t-10" fxLayout="row">
+  <div *ngIf="deliveryTimeWindowsSelected == undefined">&nbsp;</div>
+  <div *ngIf="
+        deliveryTimeWindowsSelected != undefined &&
+        deliveryTimeWindowsSelected.nowTimeStart" class="body2-bold dark-grey-color">
+    Today, {{ deliveryTimeWindowsSelected.nowTimeStart }}-{{ deliveryTimeWindowsSelected.nowTimeEnd }} min
+  </div>
+  <div *ngIf="deliveryTimeWindowsSelected != undefined &&
+        deliveryTimeWindowsSelected.dateStart" class="body2-bold dark-grey-color">
+    Schedule,&nbsp;{{ deliveryTimeWindowsSelected.dateStart | date: "dd/MM/yy" }} {{
+    deliveryTimeWindowsSelected.dateStart | date: "HH:mm" }} - {{ deliveryTimeWindowsSelected.dateEnd | date:
+    "HH:mm" }}
+  </div>
+</div>
+<!-- DIV-TIME-DELIVERY -->
+<div fxLayout="row">
+  <div fxHide.xs fxFlex="8" fxLayoutAlign="start center">
+    <span class="material-icons-outlined f-s-35 dark-grey-color pointer"
+      (click)="moveLeft(divScroll.id)">arrow_circle_left</span>
+  </div>
+  <div fxFlex fxFlex.xs="100" id="divScroll" #divScroll class="time-window-div m-t-10">
+    <div id="tdel{{ i }}"
+      class="time-order-buttom div-padding-all primary-border-color m-r-10 little-rounded pointer text-left"
+      (click)="selectDeliveryTimeWindow(dtw, i, 'tdel')" *ngFor="let dtw of time; index as i" fxFlex="50" [ngClass]="{
+        'primary-border-color': deliveryTimeWindowsSelected == dtw,
+        'black-border-color': deliveryTimeWindowsSelected != dtw
+      }">
+      <div class="body2-semibold" [ngClass]="{
+        'primary-color': deliveryTimeWindowsSelected == dtw,
+        'black-color': deliveryTimeWindowsSelected != dtw
+      }"><span *ngIf="dtw.nowTimeStart">Imediate </span>
+        <span *ngIf="dtw.dateStart">Schedule</span>
+      </div>
+
+      <div *ngIf="dtw.nowTimeStart" class="dark-grey-color">
+        Today, {{ dtw.nowTimeStart }}-{{ dtw.nowTimeEnd }} min
+      </div>
+      <div *ngIf="dtw.dateStart" class="dark-grey-color">
+        {{ dtw.dateStart | date: "dd/MM/yy" }}, {{ dtw.dateStart | date: "HH:mm" }}-{{ dtw.dateEnd | date: "HH:mm" }}
+      </div>
+      <div class="body2-semibold dark-grey-color" [ngClass]="dtw.value==0 ? 'green-color' : 'black-color'">{{
+        dtw.value==0? "Free" : dtw.value| currency }}
+      </div>
+    </div>
+  </div>
+  <div fxHide.xs fxFlex="8" fxLayoutAlign="center center">
+    <span class="material-icons-outlined f-s-35 dark-grey-color pointer"
+      (click)="moveRight(divScroll.id)">arrow_circle_right</span>
+  </div>
+</div>

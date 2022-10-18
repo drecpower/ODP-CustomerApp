@@ -1,0 +1,46 @@
+<div class="content">
+    <mat-tab-group [disableRipple]="false" class="tab-top-bar white-background-color"
+        (selectedTabChange)="onSelectTab($event)" #tabgrp>
+        <div *ngFor="let cat of catalog?.category">
+            <mat-tab [label]="cat!.name!">
+            </mat-tab>
+        </div>
+    </mat-tab-group>
+    <div class="content-bottom">
+        <div fxLayout="row">
+            <mat-form-field fxFlex="100%" appearance="fill">
+                <mat-icon class="primary-color-stroke" matPrefix [svgIcon]="icons.search"></mat-icon>
+                <mat-label class="search">Search here</mat-label>
+                <input matInput placeholder="Search here">
+
+            </mat-form-field>
+        </div>
+        <!-- <div class="heading1 title">
+            Catalog
+        </div> -->
+        <div class="groups">
+            <div class="group" *ngFor="let l of list;let i=index">
+                <!-- <div class="group" *ngFor="let category of catalog.category;let i=index"> -->
+                    <div [class]="'grp-holder grpindex-'+i"></div>
+                    <div fxLayout="column" >
+                        <div [class]="'heading2 group-name '">{{l.category!.name}}</div>
+                        <div *ngIf="!l.pizzas" class="items" fxLayout="row wrap">
+                            <div class="div-item" fxFlex="50" fxFlex.xs="100" *ngFor="let item of l.items"
+                                (click)="go(item)" [ngClass]="{'pointer':selectedSvc.isReadyToSell}">
+                                <app-catalog-item [item]="item"></app-catalog-item>
+                            </div>
+                        </div>
+                        <div *ngIf="l.pizzas" class="items" fxLayout="row wrap">
+                            <div class="div-item" fxFlex="50" fxFlex.xs="100" *ngFor="let pizza of l.pizzas"
+                                (click)="goPizza(pizza)" [ngClass]="{'pointer':selectedSvc.isReadyToSell}">
+                                <app-catalog-pizza [pizza]="pizza"></app-catalog-pizza>
+                            </div>
+                        </div>
+                    <!-- </div> -->
+                </div>
+            </div>
+            <div class="bottom-spacer">
+            </div>
+        </div>
+    </div>
+</div>

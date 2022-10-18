@@ -1,0 +1,14 @@
+[
+    {
+        "id": "09902262-27f3-4b9c-b92d-2a95337d5cb4",
+        "merchantId": "55d0e3fb-f932-11eb-b388-000d3a8abda5",
+        "status": "ACTIVE",
+        "type": "DELIVERY"
+    },
+    {
+        "id": "db5b2370-07b7-421d-86b8-a25f7838821f",
+        "merchantId": "55d0e3fb-f932-11eb-b388-000d3a8abda5",
+        "status": "ACTIVE",
+        "type": "TAKEOUT"
+    }
+]

@@ -1,0 +1,100 @@
+<div class="content" fxLayout="row" class="header white-60-background-color">
+    <div fxFlex="70">
+        <div class="optionGroupName body1-bold"
+            *ngIf="ogp?.optionGroupIdNavigation?.type != 'FLAVOR' && ogp?.optionGroupIdNavigation?.type != 'CRUST' && ogp?.optionGroupIdNavigation?.type != 'EDGE'">
+            {{ogp?.optionGroupIdNavigation?.name}}
+        </div>
+        <div class="optionGroupName body1-bold"
+            *ngIf="ogp?.optionGroupIdNavigation?.type == 'FLAVOR'">
+            Choose a flavor
+        </div>
+        <div class="optionGroupName body1-bold"
+            *ngIf="ogp?.optionGroupIdNavigation?.type == 'CRUST'">
+            Choose a crust
+        </div>
+        <div class="optionGroupName body1-bold"
+            *ngIf="ogp?.optionGroupIdNavigation?.type == 'EDGE'">
+            Choose a edge
+        </div>
+        <div class="optionName body2 grey-color"> <span>Choice from</span> {{ogp?.min}} <span> at </span>{{ogp?.max}}
+        </div>
+    </div>
+    <div fxFlex="30" fxLayout="row">
+        <div fxFlex="100" fxLayoutAlign="end center" *ngIf="qtdTotal<ogp!.max!">
+            <div class=" body4 required-number dark-grey-background-color white-80-color" *ngIf="ogp!.max!>1">
+                {{(qtdTotal)+'/'+ogp!.max}}
+            </div>
+            <div class="body4 required dark-grey-background-color white-80-color"
+                *ngIf="!(qtdTotal==ogp!.max! || singleOptionSelected)">
+                REQUIRED
+            </div>
+        </div>
+        <div fxFlex="100" fxLayoutAlign="end center" *ngIf="qtdTotal==ogp!.max! || singleOptionSelected">
+            <div>
+                <mat-icon class="success-color icon-plus">check</mat-icon>
+            </div>
+        </div>
+    </div>
+</div>
+<mat-radio-group [(ngModel)]="singleOptionSelected" [name]="matRadioGroupName">
+    <div class="option light-grey-border-bottom-color"
+        *ngFor="let op of ogp?.optionGroupIdNavigation?.option;index as i">
+        <div fxFlex="80">
+            <div *ngIf="ogp?.optionGroupIdNavigation!.type != 'FLAVOR'">
+                <div class="body1">
+                    {{op.productIdNavigation?.name}}
+                </div>
+                <div class="body2 grey-color">
+                    {{op.productIdNavigation?.description}}
+                </div>
+                <div class="price body2-semibold primary-color">+ {{op.price | currency}}</div>
+            </div>
+            <div *ngIf="ogp?.optionGroupIdNavigation!.type == 'FLAVOR'">
+                <div class="body1">
+                    <span *ngIf="ogp!.max!>1">{{'1/' + ogp!.max +' '}}</span>{{op.productIdNavigation?.name}}
+                </div>
+                <div class="body3 grey-color">
+                    {{op.productIdNavigation?.description}}
+                </div>
+                <div class="price body2-semibold primary-color">+ {{op.price!/ogp!.max! | currency}}</div>
+            </div>
+        </div>
+        <div fxFlex="20" fxLayoutAlign="end center">
+
+            <div class="button-action" *ngIf="ogp?.max==1">
+                <mat-radio-button [value]="op" (click)="toggleRadio(op)"></mat-radio-button>
+            </div>
+            <div class="button-action" *ngIf="ogp?.max!=1">
+                <div *ngIf="lstQtd[i]>0" class="quantity grey-border-color" fxLayout="row" fxLayoutAlign="end center">
+                    <div *ngIf="lstQtd[i]>0" class="n-p" (click)="remove(i)">
+                        <mat-icon *ngIf="lstQtd[i] > 0" class="primary-color icon-minus" [svgIcon]="icons.minus">
+                        </mat-icon>
+                        <mat-icon *ngIf="!(lstQtd[i]>0)" class="primary-color icon-minus"
+                            [svgIcon]="icons.minusdisabled"></mat-icon>
+                    </div>
+                    <div class="n-p" *ngIf="lstQtd[i]>0">
+                        <input class="heading3 input-quantity" [(ngModel)]="lstQtd[i]" />
+                    </div>
+                    <div class="n-p" (click)="add(i)">
+                        <mat-icon *ngIf="qtdTotal<ogp!.max!" class="primary-color icon-plus"
+                            [svgIcon]="icons.plussmall"></mat-icon>
+                        <mat-icon *ngIf="qtdTotal==ogp!.max!" class="primary-color icon-plus"
+                            [svgIcon]="icons.plusdisabled"></mat-icon>
+                    </div>
+                </div>
+                <div class="plus-alone" *ngIf="!(lstQtd[i]>0)" (click)="add(i)">
+                    <mat-icon *ngIf="qtdTotal<ogp!.max!" class="primary-color icon-plus" [svgIcon]="icons.plussmall">
+                    </mat-icon>
+                    <mat-icon *ngIf="qtdTotal==ogp!.max!" class="primary-color icon-plus"
+                        [svgIcon]="icons.plusdisabled"></mat-icon>
+                </div>
+            </div>
+            <div>
+                <img class="img-item" *ngIf="op.productIdNavigation != undefined && op.productIdNavigation.image"
+                    [src]="op.productIdNavigation!.image" />
+                <img class="img-item" *ngIf="!(op.productIdNavigation != undefined && op.productIdNavigation.image)"
+                    src="assets/imgs/fallback.png" />
+            </div>
+        </div>
+    </div>
+</mat-radio-group>

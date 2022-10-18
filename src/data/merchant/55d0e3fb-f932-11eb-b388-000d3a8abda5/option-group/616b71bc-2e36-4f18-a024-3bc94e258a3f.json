@@ -1,0 +1,32 @@
+{
+    "createdAt":"2022-01-01 00:00:00",
+    "id":"d30e5892-5fac-41c7-95da-40c465f2713e",
+    "merchantId":"55d0e3fb-f932-11eb-b388-000d3a8abda5",
+    "name":"edge",
+    "type":"EDGE",
+    "status":"active",
+    "option":[
+        {
+            "id": "54c35774-6b58-4bd6-8400-a52e25c6fac1",
+            "createdAt": "2020-09-10 22:33:10",
+            "externalCode": "2293",
+            "index": 0,
+            "productId": "c0b9ef36-4799-4067-872a-0f8def30aa53",
+            "optionGroupId":"d29b70f0-00e2-4264-8d87-d3f1ddbfef7c",
+            "originalPrice":null,
+            "price": 5.34,
+            "status": "active"
+        }, 
+        {
+            "id": "40300df7-f00c-4cd4-aa3b-78f97c45c052",
+            "createdAt": "2020-09-10 22:33:10",
+            "externalCode": "2295",
+            "index": 0,
+            "productId": "d6ffdb8c-655e-4a74-a154-9c411cf32b1e",
+            "optionGroupId":"d29b70f0-00e2-4264-8d87-d3f1ddbfef7c",
+            "price": 2.99,
+            "originalPrice":null,
+            "status": "active"
+        }
+        ]
+  }

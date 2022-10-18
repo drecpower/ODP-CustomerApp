@@ -1,0 +1,66 @@
+<div class="content">
+    <div class="toolbar-cart white-background-color" fxLayout="row wrap" fxLayoutAlign="center center"
+        light-grey-border-bottom-color>
+        <div fxFlex="30">
+            <mat-icon *ngIf="tab=='items'" class="icon primary-color font-size-11" matPrefix [svgIcon]="icons.arrowdown"
+                (click)="catalog()" routerLink="/catalog"></mat-icon>
+            <mat-icon *ngIf="tab!='items'" class="icon primary-color-stroke" matPrefix [svgIcon]="icons.back"
+                (click)="back()"></mat-icon>
+        </div>
+        <div fxFlex="40" class="heading3 header">Cart</div>
+        <div fxFlex="30" fxLayoutAlign="end center">
+            <div class="primary-color clear pointer" (click)="clear()">Clear</div>
+        </div>
+        <div fxFlex="100" class="dividerHeader">
+            <div class="light-grey-border-bottom-color"></div>
+        </div>
+    </div>
+    <app-cart-items *ngIf="tab=='items'" [categorizedItems]="cartSvc.categorizedItems"></app-cart-items>
+    <app-cart-buy-too *ngIf="tab=='items'" ></app-cart-buy-too>
+    <app-cart-coupons *ngIf="tab=='items'" [coupon]="cartSvc.coupon"></app-cart-coupons>
+    <div class="divider">
+        <div *ngIf="tab=='items'" class="light-grey-border-bottom-color"></div>
+    </div>
+    <!-- <app-cart-values *ngIf="tab=='items'"></app-cart-values> --> 
+
+
+    <app-cart-order-type [@slideInOutAnimation] *ngIf="tab=='type'"></app-cart-order-type>
+
+    <app-cart-coupons *ngIf="tab=='payment'" [coupon]="cartSvc.coupon"></app-cart-coupons>
+    <div class="divider">
+        <div *ngIf="tab=='payment'" class="light-grey-border-bottom-color"></div>
+    </div>
+    <app-cart-values *ngIf="tab=='payment'"></app-cart-values>
+    <div class="divider">
+        <div *ngIf="tab=='payment'" class="light-grey-border-bottom-color"></div>
+    </div>
+    <div *ngIf="tab=='payment'" class="payment">
+        <div class="payment-title dark-grey-color body1-semibold">Payment</div>
+        <app-cart-payment *ngIf="tab=='payment'"></app-cart-payment>
+    </div>
+    <div class="divider">
+        <div *ngIf="tab=='payment'" class="light-grey-border-bottom-color"></div>
+    </div>
+    <!-- <div class="space-top white-60-background-color"></div> -->
+    <!-- <div fxLayoutAlign="center center" class="cursor-pointer">
+        <button  class="primary-color primary-border-color " (click)="sendOrder()" mat-button>Send Order</button>
+    </div> -->
+    <div class="div-footer-scrool"></div>
+    <div class="space-top white-background-color"></div>
+    <div class="footer">
+        <div *ngIf="tab!='payment'">
+            <app-cart-total-footer></app-cart-total-footer>
+        </div>
+        <div class="footer-content primary-background-color mat-elevation-z2" fxLayoutAlign="center center"
+            (click)="continue()">
+            <div fxFlex="30">
+            </div>
+            <div class="body1-semibold white-color" fxFlex fxLayoutAlign="center center">
+                {{continueText}}
+            </div>
+            <div class="body2 white-color" fxFlex="30" fxLayoutAlign="center center">
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,78 @@
+<div fxFill class="content" fxLayout="column">
+    <div class="header white-background-color">
+        <div class="header-not-logged" *ngIf="!userSvc.user">
+            <div>
+                <div class="img" fxLayoutAlign="center center">
+                    <!-- <img src="assets/imgs/maps.png"> -->
+                    <!-- <mat-icon class="header-icon grey-color">shopping_basket</mat-icon> -->
+                </div>
+            </div>
+            <div fxLayout="row">
+                <div fxFlex="20"></div>
+                <div fxFlex="60" class="title heading2">
+                    Where you can receive your order?
+                </div>
+                <div fxFlex="20"></div>
+            </div>
+        </div>
+    </div>
+    <div class="body">
+        <div *ngIf="userSvc.user" class="header-logged">
+            <div class="header-logged" fxLayout="row wrap" fxLayoutAlign="center center">
+                <!-- <div fxFlex="30" fxLayoutAlign="start center" class="close-icon">
+                    <mat-icon (click)="back()" class="primary-color primary-color-stroke" matPrefix
+                        [svgIcon]="icons.back">
+                    </mat-icon>
+                </div> -->
+                <div fxFlex="100" class="heading3">Where you can receive your order?</div>
+                <!-- <div fxFlex="30"> </div>  -->
+            </div>
+        </div>
+        <app-choose-address (onChosedAddress)="onChoosedAddress()"></app-choose-address>
+        <div class="div-divider light-grey-border-bottom-color" *ngIf="!userSvc.user && acceptDelivery"></div>
+        <div class="takeout" *ngIf="!userSvc.user && acceptTakeout">
+            <button class="grey-color" fxFlex="100" mat-button (click)="takeOut()">
+                <div fxFlex="10" class="" fxLayoutAlign="center center"> 
+                    <mat-icon class="grey-color">directions_walk</mat-icon>
+                </div>
+                <div fxFlex="80" class="takeout-text" fxLayout="column" fxLayoutAlign="center start">
+                    <div class="body1-bold">Takeout</div>
+                    <div class="grey-color">Pick up in store</div>
+                </div>
+                <div fxFlex="10"></div>
+            </button>
+        </div>
+        <div class="div-divider light-grey-border-bottom-color" *ngIf="!userSvc.user && acceptTakeout"></div>
+        <!-- </div> -->
+        <div class="takeout" *ngIf="!userSvc.user && acceptTable">
+            <button class="grey-color" fxFlex="100" mat-button (click)="table()">
+                <div fxFlex="10" class="" fxLayoutAlign="center center">
+                    <mat-icon class="grey-color">local_bar</mat-icon>
+                </div>
+                <div fxFlex="80" class="takeout-text" fxLayout="column" fxLayoutAlign="center start">
+                    <div class="body1-bold">Table</div>
+                    <div class="grey-color">Receive on Table</div>
+                </div>
+                <div fxFlex="10"></div>
+            </button>
+        </div>
+    </div>
+    <div class="footer-height"></div>
+    <div class="footer white-background-color" fxLayout="column" fxLayoutAlign="center center" *ngIf="!userSvc.user">
+        <div class="dark-grey-color body1-bold">
+            Do you have a saved address?
+        </div>
+        <div>
+            <button class="primary-color body1-semibold" mat-button (click)="userSvc.user={}">Login</button>
+        </div>
+    </div>
+    <div class="footer-takeout white-background-color" fxLayout="column" fxLayoutAlign="center center"
+        *ngIf="userSvc.user && acceptTakeout">
+        <div class="dark-grey-color body1-bold">
+            Do you want to takeout order ?
+        </div>
+        <div>
+            <button class="primary-color body1-semibold" mat-button (click)="takeOut()">Takeout</button>
+        </div>
+    </div>
+</div>

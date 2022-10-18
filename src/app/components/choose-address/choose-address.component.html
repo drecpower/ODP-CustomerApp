@@ -1,0 +1,81 @@
+<div class="header white-background-color">
+    <div *ngIf="data" class="header-logged">
+        <div class="header-logged" fxLayout="row wrap" fxLayoutAlign="center center">
+            <div fxFlex="30" fxLayoutAlign="start center" class="close-icon">
+                <mat-icon (click)="back()" class="primary-color primary-color-stroke" matPrefix [svgIcon]="icons.back">
+                </mat-icon>
+            </div>
+            <div fxFlex="40" class="heading3">ADDRESS DELIVERY </div> 
+            <div fxFlex="30"> </div>
+        </div>
+    </div>
+    <div class="postal-code" fxLayout="column" fxLayoutAlign="start center">
+        <mat-form-field appearance="fill" floatLabel="always">
+            <input matInput name='zip-code' (ngModelChange)="changed($event)"
+                [ngModel]="postalCode" class="light-black-color" placeholder="Postal code">
+            <div *ngIf="gettingPostalCodeInfo"> Getting postal code info ...</div>
+            <span matPrefix>
+                <mat-icon class="primary-color">search</mat-icon>
+            </span>
+        </mat-form-field>
+    </div>
+</div>
+<div class="body" [ngStyle]="{'height': (userSvc.user ?'100%':'auto')}">
+    <div class="geolocation" *ngIf="geolocation ">
+        <button class="grey-color" fxFlex="100" mat-button (click)="useCurrentLocation()">
+            <div fxFlex="10" class="" fxLayoutAlign="center center">
+                <mat-icon class="grey-color">gps_fixed</mat-icon>
+            </div>
+            <div fxFlex="80" class="geolocation-text" fxLayout="column" fxLayoutAlign="center start">
+                <div class="body1-bold">Use Current location</div>
+                <div class="grey-color" *ngIf="!gpsAddress && !geocoding">Active Location</div>
+                <div class="grey-color" *ngIf="!gpsAddress && geocoding">Loading ...</div>
+                <div class="grey-color gps-address" *ngIf="gpsAddress">
+                    {{gpsAddress.streetName}} -
+                    {{gpsAddress.neighborhood}}, {{gpsAddress.city}} -
+                    {{gpsAddress.state}}
+                </div>
+            </div>
+            <div fxFlex="10"></div>
+        </button>
+    </div>
+
+    <div class="adresses extra-light-grey-background-color"
+        *ngIf="userSvc.user  && (userSvc.address && userSvc.address.length >0)" fxLayout="column">
+        <button class="address grey-color white-background-color" *ngFor="let ad of userSvc.address" mat-button
+            [ngClass]="{
+            'primary-border-color':selectedAddress==ad
+        }">
+            <div fxFlex="10" class="" fxLayoutAlign="center center" (click)="selectAddress(ad)">
+                <mat-icon class="grey-color">av_timer</mat-icon>
+            </div>
+            <div fxFlex="70" class="address-text" fxLayout="column" fxLayoutAlign="center center"
+                (click)="selectAddress(ad)">
+                <div class="heading3-regular" *ngIf="checkFavorite(ad.favoriteType)">
+                    {{capitalizeFirstLetter(ad.favoriteType)}}</div>
+
+                <div class="grey-color body2" *ngIf="checkFavorite(ad.favoriteType)">{{ad.streetName + ", " +
+                    ad.streetNumber + " - " + ad.neighborhood + ", " + ad.city + " - " + ad.state }}</div>
+
+                <div class="heading3-regular" *ngIf="!checkFavorite(ad.favoriteType)">{{ad.streetName + ", " +
+                    ad.streetNumber}}</div>
+
+                <div class="grey-color body2" *ngIf="!checkFavorite(ad.favoriteType)">{{ad.neighborhood + ", " + ad.city
+                    + " - " + ad.state + " - " }}</div>
+
+                <div class="body2 grey-color body3">
+                    <span *ngIf="ad.complement">{{ad.complement}}</span>
+                    <span *ngIf="ad.reference">{{" - " + ad.reference }}</span>
+                </div>
+            </div>
+            <div fxFlex="20">
+                <div fxFlex="50" (click)="selectAddress(ad)">
+                    <mat-icon *ngIf="selectedAddress==ad" class="check-icon primary-color">check_circle</mat-icon>
+                </div>
+                <div fxFlex="50">
+                    <mat-icon (click)="edit(ad)" class="more-vert primary-color">more_vert</mat-icon>
+                </div>
+            </div>
+        </button>
+    </div>
+</div>

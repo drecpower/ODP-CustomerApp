@@ -1,0 +1,98 @@
+<div class="content">
+    <div class="header white-background-color" fxLayout="row wrap" fxLayoutAlign="center center">
+        <div fxFlex="30" fxLayoutAlign="start center" class="close-icon">
+            <mat-icon (click)="back()" class="primary-color primary-color-stroke" matPrefix [svgIcon]="icons.back">
+            </mat-icon>
+        </div>
+        <div fxFlex="40"></div>
+        <div fxFlex="30" class="help primary-color"> Help</div>
+    </div>
+
+    <div class="forecast">
+        <div class="forecast-title grey-color body3-semibold">Delivery forecast</div>
+        <div class="time heading1"> Today, 15:56 - 16:06</div>
+        <div class="progress" fxLayout="row">
+            <mat-progress-bar fxFlex="28" class="success-color" mode="determinate" value="100"></mat-progress-bar>
+            <div fxFlex="2"></div>
+            <mat-progress-bar fxFlex="70" class="success-color" mode="indeterminate"></mat-progress-bar>
+        </div>
+        <div class="status">
+            <mat-accordion displayMode="default" [multi]="true" [hideToggle]="false">
+                <mat-expansion-panel [hideToggle]="false">
+                    <mat-expansion-panel-header class="body1-semibold">
+                        <span *ngIf="order?.status=='DSP'">Your order is coming to you</span>
+                        <span *ngIf="order?.status=='CFM'">Your order is being prepared</span>
+                        <span *ngIf="order?.status=='PLC'">Waiting the store confirm your order</span>
+                    </mat-expansion-panel-header>
+                    <div class="status-item" fxLayout="row" *ngFor="let e of order?.orderEvent">
+                        <div fxFlex="70" class="grey-color">
+                            <span *ngIf="e.code=='DSP'">Order Dipatched</span>
+                            <span *ngIf="e.code=='CFM'">Order Confirmed</span>
+                            <span *ngIf="e.code=='PLC'">Order Sended</span>
+                        </div>
+                        <div fxFlex="30" class="status-time grey-color">{{e.createdAt |date:'HH:mm'}}</div>
+                    </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+    </div>
+    <div class="address light-grey-background-color">
+        <div class="address-card white-background-color">
+            <div class="body2-bold order-type">
+                <span *ngIf="order?.orderType == OrderType.DELIVERY">Delivery In</span>
+                <span *ngIf="order?.orderType == OrderType.TAKEOUT">Pickup In</span>
+            </div>
+
+            <div *ngIf="order?.orderType == OrderType.DELIVERY" class="grey-color address-detail">
+                {{order?.addressIdNavigation?.streetName }}, {{order?.addressIdNavigation?.streetNumber}},
+                {{order?.addressIdNavigation?.neighborhood}} - {{order?.addressIdNavigation?.city}},
+                {{order?.addressIdNavigation?.state}}
+            </div>
+            <div *ngIf="order?.orderType == OrderType.TAKEOUT" class="grey-color address-detail">
+                {{order?.merchantIdNavigation }}, {{order?.merchantIdNavigation?.streetNumber}},
+                {{order?.merchantIdNavigation?.neighborhood}} - {{order?.merchantIdNavigation?.city}},
+                {{order?.merchantIdNavigation?.state}}
+            </div>
+
+            <div class="extra-light-grey-background-color dark-grey-color body4-bold tracking">Waiting for tracking confirmation</div>
+        </div>
+    </div>
+    <div class="detail">
+        <mat-card class="mat-card white-background-color">
+            <mat-card-content fxLayout="column">
+                <div class="body2-semibold order-detail">
+                    Order Detail
+                </div>
+                <div class="order" (click)="openOrder(order)">
+                    <div class="order-id" fxFlex="50">Order N {{order?.displayId}}</div>
+                    <div class="keyboard-arrow" fxFlex="50">
+                        <mat-icon class="primary-color primary-color-stroke" matPrefix>keyboard_arrow_right</mat-icon>
+                    </div>
+                </div>
+                <mat-divider class="mat-divider" inset></mat-divider>
+                <div class="payment">
+                    <span>
+                        <span class="grey-color payment-delivery" fxFlex="50">Payment on delivery</span>
+                        <span class="grey-color credit-card" fxFlex="50">
+                            <mat-icon class="primary-color primary-color-stroke" matPrefix>credit_card</mat-icon>
+                            Mastercard
+                        </span>
+                    </span>
+                    <span>
+                        <span class="total" fxFlex="50">Total</span>
+                        <span class="sub-total" fxFlex="50">{{order?.subTotal | currency}}</span>
+                    </span>
+                </div>
+            </mat-card-content>
+            <!-- <mat-divider inset></mat-divider> -->
+            <mat-card-actions fxLayoutAlign="center center">
+                <button fxFlex="50" mat-button class="btn-help" color="primary" (click)="chat()">
+                    Chat <mat-icon class="primary-color primary-color-stroke" matPrefix>chat</mat-icon>
+                </button>
+                <button fxFlex="50" mat-button class="btn-add" color="primary" (click)="call()">
+                    Call <mat-icon class="primary-color primary-color-stroke" matPrefix>phone_in_talk</mat-icon>
+                </button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

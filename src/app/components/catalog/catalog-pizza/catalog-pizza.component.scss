@@ -1,0 +1,32 @@
+.content {
+    border-radius: 5px;
+    min-height: 197px;
+    @media (min-width: 600px) {
+        padding: 10px;
+        min-height: 224px;
+    }
+}
+.img-pizza {
+    border-radius: 5px;
+    height: 100px;
+    width: 75px;
+    object-fit: cover;
+    @media (min-width: 480px) {
+        width: 120px;
+        height: 90px;
+    }
+
+    @media (min-width: 600px) {
+        width: 146px;
+        height: 146px;
+    }
+}
+.div-image-pizza {
+    padding: 14px 14px 0px 0px;
+}
+.div-text-pizza {
+    padding: 14px;
+}
+.card-pizza{
+    border-radius: 5px;
+}

@@ -1,0 +1,9 @@
+<div class="content">
+    <app-catalog-header></app-catalog-header>
+    <app-loading [ready]="ready" [loading]="selectedSvc.loadingCatalog || selectedSvc.loadingCatalogList" loadingText="" (retry)="setCatalog()"></app-loading>
+    <div class="loading" *ngIf="ready && !selectedSvc.loadingCatalog && selectedSvc.selectedCatalog==undefined">no catalog available</div>
+    <app-catalog-content *ngIf="ready && selectedSvc.selectedCatalog" [catalog]="selectedSvc.selectedCatalog"></app-catalog-content>
+    <div class="footer" fxLayoutAlign="center"  *ngIf="cartSvc.categorizedItems.length>0">
+        <app-catalog-footer></app-catalog-footer>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="banner white-background-color" >
+    <div fxFlex="10" class="icon">
+        <mat-icon (click)="back()" class="arrow-back primary-color">arrow_back_ios</mat-icon>
+    </div>
+    <div fxFlex="90" fxLayoutAlign="end center">
+        <div class="div-button">
+            <button mat-button class="btn" (click)="chooseAddress()" *ngIf="cartSvc.orderType=='DELIVERY'">
+                <div class="dark-grey-color body3-bold">
+                    <mat-icon *ngIf="!cartSvc.gpsAddress" class="mat-icon-pin primary-color-stroke" matPrefix [svgIcon]="icons.pin"></mat-icon>
+                    <span>
+                        <span *ngIf="cartSvc.address">{{cartSvc.address.streetName}}<span *ngIf="cartSvc.address.streetNumber">{{', '+ cartSvc.address.streetNumber}}</span>
+                        </span>
+                    </span>
+                    <span *ngIf="cartSvc.gpsAddress">
+                        <mat-icon class="mat-icon-gps primary-color">gps_fixed</mat-icon>
+                        <span >{{cartSvc.gpsAddress?.streetName }}</span>
+                    </span>
+                    <span *ngIf="!cartSvc.gpsAddress && !cartSvc.address">Choose address...</span>
+                    <mat-icon class="primary-color icon-down">keyboard_arrow_down</mat-icon>
+                </div>
+            </button>
+            <button mat-button class="btn" (click)="chooseMerchant()" *ngIf="cartSvc.orderType=='TAKEOUT'">
+                <div class="dark-grey-color body3-bold">
+                    <mat-icon class="mat-icon-directions-walk primary-color">directions_walk</mat-icon>
+                    <span *ngIf="selectedSvc.selectedMerchant">{{selectedSvc.selectedMerchant.streetName + ", "
+                        +selectedSvc.selectedMerchant.streetNumber}}</span>
+                    <span *ngIf="!selectedSvc.selectedMerchant && !cartSvc.address">Choose merchant...</span>
+                    <mat-icon class="primary-color icon-down">keyboard_arrow_down</mat-icon>
+                </div>
+            </button>
+        </div>
+        <!-- <span class="mat-icon-address">
+        </span> -->
+    </div>
+</div>

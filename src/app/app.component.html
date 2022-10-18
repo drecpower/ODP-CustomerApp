@@ -1,0 +1,10 @@
+<div fxFill *ngIf="appshell.isSystemReadyAsync|async">
+  <router-outlet></router-outlet> 
+</div>
+<div fxFill *ngIf="!(appshell.isSystemReadyAsync|async)" [@longFadeInOutAnimation] fxLayoutAlign="center center">
+  <app-splash-screen></app-splash-screen>
+  <!-- <div fxFlex="100" fxLayout="column">
+    <div class="loading"> loading...</div>
+    <mat-progress-bar mode="buffer"></mat-progress-bar>
+  </div> -->
+</div>

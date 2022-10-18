@@ -1,0 +1,27 @@
+<div fxLayout="row wrap" class="content">
+    <div class="light-grey-border-color card-item" fxFlex="100">
+        <div fxFlex.gt-xs="50" fxFlex.xs="70" fxLayout="column" class="div-text-item">
+            <div class="body1">{{item.productIdNavigation?.name}}</div>
+            <div class="body2 dark-grey-color">{{item.productIdNavigation?.description}}</div>
+            <div fxFlex></div>
+            <div class="price" fxLayout="row wrap">
+                <div *ngIf="selectedSvc.isReadyToSell && item.originalPrice">
+                    <span class="body1 success-color">{{item.price|currency}}</span>&nbsp;
+                    <span class="body4-overline dark-grey-color">{{item.originalPrice|currency}}</span>
+                </div>
+                <div *ngIf="selectedSvc.isReadyToSell && !item.originalPrice" class="body1">
+                    {{item.price|currency}}
+                </div>
+                <app-loading [ready]="selectedSvc.isReadyToSell" [loading]="true" loadingText="loading news ..."></app-loading>
+
+                <!-- <mat-progress-bar  *ngIf="!selectedSvc.isReadyToSell" mode="buffer"></mat-progress-bar> -->
+            </div>
+        </div>
+        <div fxFlex.gt-xs="50" fxFlex.xs="30" fxLayoutAlign="end start">
+            <div class="div-image-item">
+                <img class="img-item" *ngIf="item!.productIdNavigation != undefined && item.productIdNavigation.image" [src]="manifestSvc.ipfsgatewayUri+item!.productIdNavigation!.image" />
+                <img class="img-item" *ngIf="!(item!.productIdNavigation != undefined && item.productIdNavigation.image)" src="assets/imgs/fallback.png" />
+            </div>
+        </div>
+    </div>
+</div>

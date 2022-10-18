@@ -1,0 +1,25 @@
+<div class='page' fxFill fxLayout="column" fxLayoutAlign="center center">
+    <!-- <h1 i18n="@@splash.title" > -->
+    <mat-spinner [diameter]="80"></mat-spinner>
+    <h1>
+        Loading App
+    </h1>
+    <br>
+    <div class="div-loads" *ngIf="showProcessName">
+        <div>
+            <span fxFlex="90">Loading cart...</span>
+            <mat-icon fxFlex="10" class="success-color" *ngIf="cartSvc.isReady">check_circle_outline</mat-icon>
+            <mat-spinner fxFlex="10" [diameter]="20" class="small" *ngIf="!cartSvc.isReady"></mat-spinner>
+        </div>
+        <div> 
+            <span fxFlex="90">Load merchant group...</span>
+            <mat-icon fxFlex="10" class="success-color" *ngIf="selectedSvc.selectedMerchantGroup"> check_circle_outline</mat-icon>
+            <mat-spinner fxFlex="10" [diameter]="20" class="small" *ngIf="!selectedSvc.selectedMerchantGroup && selectedSvc.loadingMerchantGroup"></mat-spinner>
+        </div>
+        <div *ngIf="selectedSvc.selectedMerchantGroup"> 
+            <span fxFlex="90">Load merchant...</span>
+            <mat-icon fxFlex="10" class="success-color" *ngIf="selectedSvc.loadingMerchant"> check_circle_outline</mat-icon>
+            <mat-spinner fxFlex="10" [diameter]="20" class="small" *ngIf="!selectedSvc.loadingMerchant && selectedSvc.loadingCatalogList"></mat-spinner>
+        </div>
+    </div>
+</div>

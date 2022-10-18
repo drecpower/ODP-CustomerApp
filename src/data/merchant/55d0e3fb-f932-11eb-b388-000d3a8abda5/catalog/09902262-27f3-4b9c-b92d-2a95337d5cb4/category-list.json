@@ -1,0 +1,32 @@
+[
+        {
+            "catalogId": "09902262-27f3-4b9c-b92d-2a95337d5cb4",
+            "createdAt": "2020-09-10 22:33:10",
+            "externalCode": "10",
+            "index": 0,
+            "name": "Drinks",
+            "status": "active",
+            "id": "98ea6e28-74a5-4b76-96fb-384c775fe819",
+            "template": "DEFAULT"
+        },
+        {
+            "catalogId": "09902262-27f3-4b9c-b92d-2a95337d5cb4",
+            "createdAt": "2020-09-10 22:33:10",
+            "externalCode": "10",
+            "index": 0,
+            "name": "Snacks",
+            "status": "active",
+            "id": "ad0b512d-ec28-4cab-b826-4b550bd31ccc",
+            "template": "DEFAULT"
+        },
+        {
+            "catalogId": "09902262-27f3-4b9c-b92d-2a95337d5cb4",
+            "createdAt": "2020-09-10 22:33:10",
+            "externalCode": "10",
+            "index": 0,
+            "name": "Pizzas Salgadas",
+            "status": "active",
+            "id": "65620c1a-ea6a-4a53-a974-29a239ed27f8",
+            "template": "PIZZA"
+        }
+    ]

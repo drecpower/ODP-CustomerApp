@@ -1,0 +1,90 @@
+.header-not-logged {
+    height: 300px;
+    text-align: center;
+    padding: 20px 20px 0px 20px;
+}
+.header {
+    position: sticky;
+    width: 100%;
+    z-index: 1;
+    top: 0;
+}
+.header-logged {
+    padding: 10px 10px 20px 10px;
+    text-align: center;
+    height: 50px;
+}
+.img {
+    height: 200px;
+    width: 100%;
+    border-radius: 10px;
+    background-image: url("../../../assets/imgs/maps.png");
+}
+.title {
+    padding: 20px;
+}
+.header-icon {
+    font-size: 90px;
+}
+
+// ::ng-deep .mat-form-field-infix {
+//     border: 0px;
+// }
+::ng-deep .mat-dialog-container{
+    padding: 0px !important;
+}
+
+.div-divider{
+    margin: 0px 20px;
+}
+
+::ng-deep .mat-form-field-flex {
+    border-radius: 5px !important;
+}
+
+// ::ng-deep .mat-input-element {
+//     padding: 5px !important;
+//     padding-left: 15px !important;
+// }
+
+
+
+.body {
+    height: 100%;
+    text-align: center;
+    padding-bottom: 15px;
+    overflow-y: scroll;
+}
+
+.footer-height {
+    height: 75px;
+}
+.footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    padding: 20px 20px 10px 20px;
+}
+.footer-takeout {
+    text-align: center;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    padding: 10px 10px 5px 10px;
+}
+
+.takeout {
+    padding: 10px 10px 10px 10px;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.takeout-text {
+    line-height: 25px;
+    padding-left: 10px;
+}
+
+

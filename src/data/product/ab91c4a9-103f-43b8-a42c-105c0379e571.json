@@ -1,0 +1,35 @@
+{
+    "id":"ab91c4a9-103f-43b8-a42c-105c0379e571",
+    "createdAt": "2020-09-10 22:33:10",
+    "name": "Pizza",
+    "description": "",
+    "externalCode": "5468",
+    "status": "active",
+    "image":"",
+    "optionGroupProduct" : [
+        {
+            "id": "49d48e24-da57-48a4-ba8d-216a2b5670c7",
+            "min": "1",
+            "max": "2",
+            "status": "",
+            "index": "0",
+            "acceptedFractions": "2",
+            "externalCode": "4258",
+            "slices": "8",
+            "optionGroupId": "e9ddac90-18c4-493d-85f8-a810ef639a9c",
+            "productId": "ab91c4a9-103f-43b8-a42c-105c0379e571"
+        },
+        {
+            "id": "db80558f-ed67-40a0-8e27-1f6ef09e3755",
+            "min": "1",
+            "max": "1",
+            "status": "",
+            "index": "0",
+            "acceptedFractions": "1",
+            "externalCode": "4258",
+            "slices": "8",
+            "optionGroupId": "b3b40565-d6d6-44a9-8919-fcacfc1eeef4",
+            "productId": "ab91c4a9-103f-43b8-a42c-105c0379e571"
+        }
+    ]
+}

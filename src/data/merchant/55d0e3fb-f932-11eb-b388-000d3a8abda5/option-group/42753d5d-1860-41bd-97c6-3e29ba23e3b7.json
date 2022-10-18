@@ -1,0 +1,31 @@
+{
+    "createdAt":"2022-01-01 00:00:00",
+    "id":"42753d5d-1860-41bd-97c6-3e29ba23e3b7",
+    "merchantId":"55d0e3fb-f932-11eb-b388-000d3a8abda5",
+    "name":"Choose your fry",
+    "status":"active",
+    "option":[
+      {
+          "createdAt":"2022-01-01 00:00:00",
+          "externalCode":"",
+          "id":"a4ec17f6-f429-4fca-9ed1-ad9a5cde1efd",
+          "index":"0",
+          "optionGroupId":"42753d5d-1860-41bd-97c6-3e29ba23e3b7",
+          "originalPrice":null,
+          "price":7,
+          "productId":"6f509e78-c5ba-4c3b-8b4f-bd4bca89b106",
+          "status":"active"
+        },
+      {
+          "createdAt":"2022-01-01 00:00:00",
+          "externalCode":"",
+          "id":"1228b82d-dd48-45ac-8965-72d952f26848",
+          "index":"0",
+          "optionGroupId":"42753d5d-1860-41bd-97c6-3e29ba23e3b7",
+          "originalPrice":null,
+          "price":7,
+          "productId":"8963635f-b08a-4edf-9116-93b6657db8b7",
+          "status":"active"
+        }
+  ]
+  }

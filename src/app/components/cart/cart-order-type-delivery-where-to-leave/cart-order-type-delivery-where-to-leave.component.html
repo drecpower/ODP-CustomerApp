@@ -1,0 +1,23 @@
+  <!-- DIV-WHERE-TO-LEAVE -->
+  <div class="m-t-10" fxLayout="column">
+    <div class="body2-bold" fxLayout="row">Where to leave the order ?</div>
+    <div fxLayout="row" class="m-t-6">
+      <div fxHide.xs fxFlex="8" fxLayoutAlign="start center">
+        <span class="material-icons-outlined f-s-35 dark-grey-color pointer"
+          (click)="moveLeft(divScrollLeave.id)">arrow_circle_left</span>
+      </div>
+      <div fxFlex id="divScrollLeave" #divScrollLeave fxLayout="row" class="m-t-20 leave-order-div">
+        <div id="sl{{ i }}" *ngFor="let t of leaveOrder; index as i" (click)="selectWhereToLeave(i)"
+          class="very-rounded leave-order-buttom pointer" [ngClass]="{
+            'primary-border-color': selectedIndexWhereToLeave == i,
+            'black-border-color': selectedIndexWhereToLeave != i}">
+          <span>{{ t.type }}</span>
+        </div>
+      </div>
+      <div fxHide.xs fxFlex="8" fxLayoutAlign="center center" class="arrow-circle-right">
+        <span class="material-icons-outlined f-s-35 dark-grey-color pointer"
+          (click)="moveRight(divScrollLeave.id)">arrow_circle_right</span>
+      </div>
+    </div>
+  </div>
+

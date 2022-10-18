@@ -1,0 +1,22 @@
+{
+    "id": "55d0e3fb-f932-11eb-b388-000d3a8abda5",
+    "acceptDeliveryOrder": true,
+    "acceptTakeoutOrder": true,
+    "acceptTableOrder": true,
+    "createdAt": "2021-12-31 10:00",
+    "delinetEndpoint": "",
+    "delinetPrivateKey": "",
+    "delinetPublicKey": "",
+    "merchantGroupId": "cbdeeabe-f931-11eb-b388-000d3a8abda5",
+    "name": "killer of hungry",
+    "status": "ACTIVE",
+    "city": "SP",
+    "country": "Brasil",
+    "latitude": -23.607297,
+    "longitude": -46.652572,
+    "neighborhood": "Jabaquara",
+    "postalCode": "04060020",
+    "state": "São Paulo",
+    "streetName": "Rua Wilfrido Cid Valério",
+    "streetNumber": "223"
+}

@@ -1,0 +1,85 @@
+<div fxFill class="content" fxLayout="column">
+    <div class="header" fxLayout="column">
+        <div class="img" fxLayout="column">
+            <div class="img1"></div>
+            <div class="img2"></div>
+            <div class="back">
+                <div fxFlex="30" fxLayoutAlign="start center" class="close-icon" (click)="back()">
+                    <mat-icon mat-dialog-close class="primary-color primary-color-stroke" matPrefix
+                        [svgIcon]="icons.back">
+                    </mat-icon>
+                </div>
+                <div fxFlex="40"></div>
+                <div fxFlex="30"> </div>
+            </div>
+        </div>
+        <div class="title">
+            <div class="title-street heading2 body1-bold">{{data.streetName}}<span *ngIf="data.streetNumber">{{", " + data.streetNumber}}</span> </div>
+            <div class="body1 grey-color">{{data.neighborhood + ", " + data.city
+                + " - " + data.state}}<span *ngIf="data.country"> {{" - " +data.country}} </span></div>
+        </div>
+    </div>
+    <div class="body" fxLayout="column">
+        <div fxLayout="row" class="number-complement">
+            <div fxFlex="40" class="number">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label class="dark-grey-color">Number</mat-label>
+                    <input matInput [(ngModel)]="number" value="">
+                </mat-form-field>
+            </div>
+            <div fxFlex="60">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label class="dark-grey-color">Complement</mat-label>
+                    <input matInput [(ngModel)]="complement" value="">
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row" class="sub-complement">
+            <div fxFlex="40" class="number">
+            </div>
+            <div fxFlex="60">
+                <span class="dark-grey-color ">Apt / Block / House</span>
+            </div>
+        </div>
+        <div fxLayout="row" class="reference">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label class="dark-grey-color">Reference point</mat-label>
+                <input matInput [(ngModel)]="reference" value="">
+            </mat-form-field>
+        </div>
+        <div fxLayout="column" class="btns">
+            <div>
+                <span>Favorite as</span>
+            </div>
+            <div fxFlex="100" fxLayout="row">
+                <div fxFlex="50" class="btn-home">
+                    <button class="dark-grey-color grey-border-color" [ngClass]="{
+                        'black-color': checkFavoriteHome(favoriteType),
+                        'black-border-color': checkFavoriteHome(favoriteType)
+                    }" (click)="selectedFavoriteType(1)" mat-button>
+                        <mat-icon class="grey-color" [ngClass]="{
+                            'black-color':checkFavoriteHome(favoriteType)
+                        }">home</mat-icon>
+                        Home
+                    </button>
+                </div>
+                <div fxFlex="50" class="btn-work">
+                    <button class="dark-grey-color grey-border-color" [ngClass]="{
+                        'black-color': checkFavoriteWork(favoriteType),
+                        'black-border-color':checkFavoriteWork(favoriteType)
+                    }" (click)="selectedFavoriteType(2)" mat-button>
+                        <mat-icon [ngClass]="{
+                            'black-color': checkFavoriteWork(favoriteType)
+                        }" class="grey-color">work</mat-icon>
+                        Work
+                    </button>
+                </div>
+            </div>
+            <div fxFlex="100" fxLayout="row">
+                <div fxFlex="100" class="btn-save">
+                    <button mat-raised-button color="primary" (click)="save()">Save Address</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

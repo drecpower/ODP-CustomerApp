@@ -1,0 +1,79 @@
+<div fxLayout="column" class="content">
+  <div *ngFor="let p of paymentSvc.paymentsOffline" [mat-dialog-close]="p">
+    <div class="heading3-regular title">
+      {{p.groupName}}
+    </div>
+    <div class="item-content pointer b-r-5" *ngFor="let i of p.items" [mat-dialog-close]=i
+      (click)="cartSvc.selectPayment(i)" [ngClass]="{
+      'primary-border-color': (cartSvc.payment && cartSvc.payment.method && cartSvc.payment.method == i.method && cartSvc.payment.cardBrand == i.cardBrand),
+      'light-grey-border-color': !(cartSvc.payment && cartSvc.payment.method && cartSvc.payment.method == i.method && cartSvc.payment.cardBrand == i.cardBrand)
+    }">
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <div fxFlex="10">
+          <mat-icon class="primary-color primary-color-stroke" matPrefix>credit_card</mat-icon>
+        </div>
+        <div fxFlex fxLayout="column" fxLayoutAlign="start start">
+          <div class="body3">
+            {{i.cardBrand}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 
+<div fxLayout="column" >
+  <div class="light-grey-border-color" *ngFor="let c of paymentDelivery" [mat-dialog-close]=c (click)="selectedCard(c)">
+    <div *ngIf="c.type==''">
+      <div class="item-content light-grey-border-bottom-color" fxLayout="row" fxLayoutAlign="center center">
+        <div fxFlex="10">
+          <mat-icon class="primary-color primary-color-stroke" matPrefix>attach_money</mat-icon>
+        </div>
+        <div fxFlex fxLayout="column" fxLayoutAlign="start start">
+          <div class="body3">
+            {{c.brand}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="heading3-regular title">
+    Credit
+  </div>
+  <div><hr class="light-grey-color"></div>
+  <div *ngFor="let c of paymentDelivery" [mat-dialog-close]=c (click)="selectedCard(c)">
+    <div *ngIf="c.type=='Credit'">
+      <div class="item-content light-grey-border-bottom-color" fxLayout="row" fxLayoutAlign="center center">
+        <div fxFlex="10">
+          <mat-icon class="primary-color primary-color-stroke" matPrefix>credit_card</mat-icon>
+        </div>
+        <div fxFlex fxLayout="column" fxLayoutAlign="start start">
+          <div class="body3">
+            {{c.brand}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="heading3-regular title ">
+    Debit
+  </div>
+  <div><hr class="white-60-color"></div>
+  <div *ngFor="let c of paymentDelivery" [mat-dialog-close]=c (click)="selectedCard(c)">
+    <div *ngIf="c.type=='Debit'">
+      <div class="item-content light-grey-border-bottom-color" fxLayout="row" fxLayoutAlign="center center">
+        <div fxFlex="10">
+          <mat-icon class="primary-color primary-color-stroke" matPrefix>credit_card</mat-icon>
+        </div>
+        <div fxFlex fxLayout="column" fxLayoutAlign="start start">
+          <div class="body3">
+            {{c.brand}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div> -->

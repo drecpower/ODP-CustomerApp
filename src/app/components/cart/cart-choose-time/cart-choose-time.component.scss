@@ -1,0 +1,38 @@
+.f-s-35 {
+  font-size: 35px;
+}
+
+.div-padding-all {
+  padding: 15px;
+}
+.time-window-div {
+  // margin-top: 10px;
+  overflow-x: scroll;
+}
+
+.time-order-buttom {
+  min-width: 170px;
+  display: inline-block;
+  white-space: nowrap;
+}
+.m-t-10 {
+  margin-top: 10px;
+}
+.m-r-10 {
+  margin-right: 10px;
+}
+.m-t-15 {
+  margin-top: 15px;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  /* Remove scrollbar space */
+  background: transparent;
+  /* Optional: just make scrollbar invisible */
+}
+
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}

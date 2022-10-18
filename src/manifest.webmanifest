@@ -1,0 +1,46 @@
+{
+  "name": "MARIJANE",
+  "short_name": "MARIJANE",
+  "theme_color": "#1976d2",
+  "background_color": "#fafafa",
+  "display": "standalone",
+  "scope": "./",
+  "start_url": "./",
+  "merchantGroupId": "2fef9b2d-ce85-41c7-9866-3905d43a50c2",
+  "endpoints": [
+    {
+      "createdAt": "",
+      "headers": "",
+      "index": 0,
+      "merchantId": "add1b6d8-490a-41ea-afd1-6663a532736c",
+      "params": "",
+      "privateKey": "",
+      "publicKey": "QmPyCMXknPWD4mxLQ2V7pZ5DJ8KCeuniHuasn6Pekm8W2j",
+      "status": "ACTIVE",
+      "type": "DATA",
+      "protocolType": "IPFS",
+      "uri": "https://ipfs.opendelivery.app/ipfs/{publicKey}",
+      "uriFallback": "https://gw.crustapps.net/;https://crustwebsites.net/;https://crustipfs.xyz/;https://ipfs-gw.decloud.foundation/;https://ipfs.opendelivery.app/;CUSTOM GATEWAY"
+    },
+    {
+      "createdAt": "",
+      "headers": "",
+      "index": 1,
+      "merchantId": "add1b6d8-490a-41ea-afd1-6663a532736c",
+      "params": "",
+      "privateKey": "",
+      "publicKey": "QmPyCMXknPWD4mxLQ2V7pZ5DJ8KCeuniHuasn6Pekm8W2j",
+      "status": "ACTIVE",
+      "type": "HASH_DATA",
+      "protocolType": "ORBIT_DB",
+      "uri": "/orbitdb/zdpuApKQerJ6Equn9DgJ14Gun4WCG1Ys3b4K5uRLDiMr4RLpw/add1b6d8-490a-41ea-afd1-6663a532736c_hashdata"
+    }
+  ],
+  "icons": [
+    {
+      "src": "assets/icons/app-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

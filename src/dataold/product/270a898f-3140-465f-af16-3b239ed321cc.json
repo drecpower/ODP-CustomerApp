@@ -1,0 +1,47 @@
+{
+    "id": "270a898f-3140-465f-af16-3b239ed321cc",
+    "createdAt": "2020-09-10 22:33:10",
+    "name": "MC happy snack",
+    "description": "1 snack 1 fry and 1 drink",
+    "externalCode": "1",
+    "status": "active",
+    "image":"https://media.gazetadopovo.com.br/viver-bem/2018/02/mclanche-feliz-foto-divulgao-768x512-da30f4b0.jpg",
+    "optionGroupProduct": [
+        {
+            "id": "1eafdcb2-e1a5-4452-9bb7-c480c0398612",
+            "index": 0,
+            "min": 1,
+            "max": 1,
+            "optionGroupId": "d29b70f0-00e2-4264-8d87-d3f1ddbfef7c",
+            "productId": "270a898f-3140-465f-af16-3b239ed321cc",
+            "status": "active"
+        },
+        {
+            "id": "94e8a18e-46c7-4142-8140-078fa143477f",
+            "index": 0,
+            "min": 1,
+            "max": 2,
+            "optionGroupId": "42753d5d-1860-41bd-97c6-3e29ba23e3b7",
+            "productId": "270a898f-3140-465f-af16-3b239ed321cc",
+            "status": "active"
+        },
+        {
+            "id": "71073915-f96c-4171-84ea-84f053ee6b3f",
+            "index": 0,
+            "min": 1,
+            "max": 1,
+            "optionGroupId": "16a6dcd1-1be7-40fe-b9e2-dd9f79e31b58",
+            "productId": "270a898f-3140-465f-af16-3b239ed321cc",
+            "status": "active"
+        },
+        {
+            "id": "71073915-f96c-4171-84ea-84f053ee6b3f",
+            "index": 0,
+            "min": 0,
+            "max": 1,
+            "optionGroupId": "16a6dcd1-1be7-40fe-b9e2-dd9f79e31b58",
+            "productId": "270a898f-3140-465f-af16-3b239ed321cc",
+            "status": "active"
+        }
+    ]
+}

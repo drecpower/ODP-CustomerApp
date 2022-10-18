@@ -1,0 +1,117 @@
+[
+        {
+            "id":"6f509e78-c5ba-4c3b-8b4f-bd4bca89b106",
+            "createdAt": "2020-09-10 22:33:10",
+            "name": "french fries",
+            "description": "french fries with salt",
+            "externalCode": "22",
+            "status": "active",
+            "image":"https://cache-backend-mcd.mcdonaldscupones.com/media/image/product$kUXVg4F7/200/200/original?country=br"
+        },
+        {
+            "id":"9ef17d07-04ab-4e31-ba68-f7003bf68d12",
+            "createdAt": "2020-09-10 22:33:10",
+            "name": "Soda",
+            "description": "soda with orange flavor",
+            "externalCode": "2",
+            "status": "active",
+            "image":"https://casafiesta.fbitsstatic.net/img/p/refrigerante-fanta-laranja-lata-350ml-67109/233977.jpg?w=420&h=420&v=no-change&qs=ignore"
+        },
+        {
+            "id": "270a898f-3140-465f-af16-3b239ed321cc",
+            "createdAt": "2020-09-10 22:33:10",
+            "name": "MC happy snack",
+            "description": "1 snack 1 fry and 1 drink",
+            "externalCode": "1",
+            "status": "active",
+            "image":"https://media.gazetadopovo.com.br/viver-bem/2018/02/mclanche-feliz-foto-divulgao-768x512-da30f4b0.jpg",
+            "optionGroupProduct": [
+                {
+                    "id": "1eafdcb2-e1a5-4452-9bb7-c480c0398612",
+                    "index": 0,
+                    "min": 1,
+                    "max": 1,
+                    "optionGroupId": "d29b70f0-00e2-4264-8d87-d3f1ddbfef7c",
+                    "productId": "270a898f-3140-465f-af16-3b239ed321cc",
+                    "status": "active"
+                },
+                {
+                    "id": "94e8a18e-46c7-4142-8140-078fa143477f",
+                    "index": 0,
+                    "min": 1,
+                    "max": 2,
+                    "optionGroupId": "42753d5d-1860-41bd-97c6-3e29ba23e3b7",
+                    "productId": "270a898f-3140-465f-af16-3b239ed321cc",
+                    "status": "active"
+                },
+                {
+                    "id": "71073915-f96c-4171-84ea-84f053ee6b3f",
+                    "index": 0,
+                    "min": 1,
+                    "max": 1,
+                    "optionGroupId": "16a6dcd1-1be7-40fe-b9e2-dd9f79e31b58",
+                    "productId": "270a898f-3140-465f-af16-3b239ed321cc",
+                    "status": "active"
+                },
+                {
+                    "id": "71073915-f96c-4171-84ea-84f053ee6b3f",
+                    "index": 0,
+                    "min": 0,
+                    "max": 1,
+                    "optionGroupId": "16a6dcd1-1be7-40fe-b9e2-dd9f79e31b58",
+                    "productId": "270a898f-3140-465f-af16-3b239ed321cc",
+                    "status": "active"
+                }
+            ]
+        },
+        {
+            "id":"779da564-8263-467c-8032-796c0afe998c",
+            "createdAt": "2020-09-10 22:33:10",
+            "name": "beef",
+            "description": "beef burger, cheese and ketchup",
+            "externalCode": "2",
+            "status": "active",
+            "image":"https://cache-backend-mcd.mcdonaldscupones.com/media/image/product$kzXCTbnv/200/200/original?country=br"
+        },
+        {
+            "id":"706741d2-ec4c-4585-8063-02f92f9b27fe",
+            "createdAt": "2020-09-10 22:33:10",
+            "name": "Coke",
+            "description": "soda can coke flavor",
+            "externalCode": "1",
+            "status": "active",
+            "image":"https://images-submarino.b2w.io/produtos/2935254479/imagens/coca-cola-lata-350ml/2935254487_1_large.jpg"
+        },
+        {
+            "id":"8963635f-b08a-4edf-9116-93b6657db8b7",
+            "createdAt": "2020-09-10 22:33:10",
+            "name": "onion rings",
+            "description": "onion rings with salt",
+            "externalCode": "33",
+            "status": "active",
+            "image":"https://static.wikia.nocookie.net/ronaldmcdonald/images/2/20/Onion_rings.png/revision/latest?cb=20140825151239"
+        
+        },
+        {
+            "id":"bcc5fe48-2f9e-4851-b8e4-4b0ffc1c6abd",
+            "createdAt": "2020-09-10 22:33:10",
+            "name": "chicken",
+            "description": "chicken burger, cheese and ketchup",
+            "externalCode": "2",
+            "status": "active",
+            "image":"https://w7.pngwing.com/pngs/815/684/png-transparent-mcchicken-chicken-sandwich-hamburger-mcdonald-s-chicken-mcnuggets-club-sandwich-chicken-burger.png"
+        },
+        {
+            "id":"dc180dae-30c0-41de-a997-d6a14e155226",
+            "createdAt": "2020-09-10 22:33:10",
+            "name": "Soda",
+            "description": "soda can lemon flavor",
+            "externalCode": "2",
+            "status": "active",
+            "image":"https://www.paodeacucar.com/img/uploads/1/904/11840904.jpg"
+        }
+
+
+
+
+    ]

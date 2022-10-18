@@ -1,0 +1,111 @@
+[
+    {
+        "currency": "USD",
+        "status": "ACTIVE",
+        "type": "ONLINE",
+        "method": "DIGITAL_WALLET",
+        "gateway": "GOOGLE_PAY",
+        "displayName": "Google Pay"
+    },
+    {
+        "currency": "USD",
+        "status": "ACTIVE",
+        "type": "ONLINE",
+        "method": "DIGITAL_WALLET",
+        "gateway": "APPLE_PAY",
+        "displayName": "Apple Pay"
+    },
+    {
+        "currency": "USD",
+        "status": "ACTIVE",
+        "type": "ONLINE",
+        "method": "DIGITAL_WALLET",
+        "gateway": "SAMSUNG_PAY",
+        "displayName": "Samsung Pay"
+    },
+    {
+        "currency": "USD",
+        "status": "ACTIVE",
+        "type": "ONLINE",
+        "method": "CREDIT",
+        "gateway": "REDE",
+        "cardBrand": "Rede",
+        "displayName": "Online Credit"
+    },
+    {
+        "currency": "USD",
+        "status": "ACTIVE",
+        "type": "OFFLINE",
+        "method": "MONEY",
+        "cardBrand": "Money"
+    },
+    {
+        "currency": "USD",
+        "status": "ACTIVE",
+        "type": "OFFLINE",
+        "method": "CREDIT",
+        "cardBrand": "Amex"
+    },
+    {
+        "currency": "USD",
+        "status": "ACTIVE",
+        "type": "OFFLINE",
+        "method": "CREDIT",
+        "cardBrand": "Visa"
+    },
+    {
+        "currency": "USD",
+        "status": "ACTIVE",
+        "type": "OFFLINE",
+        "method": "CREDIT",
+        "cardBrand": "Mastercard"
+    },
+    {
+        "currency": "USD",
+        "status": "ACTIVE",
+        "type": "OFFLINE",
+        "method": "CREDIT",
+        "cardBrand": "Elo"
+    },
+    {
+        "currency": "USD",
+        "status": "ACTIVE",
+        "type": "OFFLINE",
+        "method": "DEBIT",
+        "cardBrand": "Visa"
+    },
+    {
+        "currency": "USD",
+        "status": "ACTIVE",
+        "type": "OFFLINE",
+        "method": "DEBIT",
+        "cardBrand": "Mastercard"
+    },
+    {
+        "currency": "USD",
+        "status": "ACTIVE",
+        "type": "OFFLINE",
+        "method": "DEBIT",
+        "cardBrand": "Elo"
+    },
+    {
+        "currency": "USD",
+        "status": "ACTIVE",
+        "type": "OFFLINE",
+        "method": "MEAL_VOUCHER",
+        "cardBrand": "MV"
+    },
+    {
+        "currency": "USD",
+        "status": "ACTIVE",
+        "type": "OFFLINE",
+        "method": "FOOD_VOUCHER",
+        "cardBrand": "FV"
+    },
+    {
+        "currency": "USD",
+        "status": "ACTIVE",
+        "type": "OFFLINE",
+        "method": "CASH"
+    }
+]
